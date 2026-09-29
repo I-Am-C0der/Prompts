@@ -1,0 +1,129 @@
+# 11 — Simulation & Credit Risk Module Deep-Dive
+
+Create a durable technical/domain dossier for the Simulation and Credit Risk modules.
+
+**Do NOT modify application source code.**
+
+## Objective
+
+Capture reusable knowledge so future CR analysis can begin from known module behavior instead of repeatedly rediscovering the repository.
+
+## Rules
+
+- Do not infer business rules solely from class/method names.
+- Trace real execution paths.
+- Verify calculations, persistence, inputs, and outputs from code.
+- Classify material findings as Confirmed, Inferred, or Uncertain.
+- Do not expose secrets or sensitive production data.
+- Do not assume financial/risk semantics without repository or trusted project evidence.
+
+## Simulation
+
+Document:
+- project/module structure
+- screens and user actions
+- entry points and workflows
+- validations
+- calculation/process flow
+- orchestration
+- inputs/data sources
+- persistence
+- outputs/reports
+- audit/history
+- state/lifecycle
+- errors/retry/recovery
+- concurrency/background work
+- shared utilities
+- wrapper-framework dependencies
+- callers/consumers
+- tests and gaps
+
+For every material calculation identify:
+- input data
+- transformations
+- units
+- precision/rounding
+- intermediate state
+- output consumers
+- persistence/audit
+- evidence supporting the rule
+
+Do not validate financial correctness from intuition alone.
+
+## Credit Risk
+
+Document:
+- project/module structure
+- screens/workflows
+- inputs/data sources
+- validations
+- risk-processing/calculation flow
+- persistence
+- dependencies on other modules
+- external/reference data
+- outputs/reports
+- audit/history
+- security/permissions
+- errors/recovery
+- performance/concurrency
+- tests/gaps
+
+For material calculations identify:
+- inputs
+- transformations
+- precision/rounding
+- thresholds/limits where present
+- aggregation/grouping
+- output consumers
+- persistence
+- evidence supporting each rule
+
+## Cross-module relationships
+
+Trace relationships to:
+- Settlement
+- Custody
+- reporting
+- common/shared projects
+- Oracle data
+- wrapper framework
+- external systems
+
+Classify each dependency as:
+- compile-time
+- runtime
+- database/data
+- operational
+
+## Future-CR readiness
+
+Identify:
+- likely change points
+- shared classes with broad blast radius
+- critical DB objects
+- calculation-sensitive methods
+- fragile workflows
+- missing regression tests
+- unknowns likely to block future CRs
+
+## Output
+
+Create/update:
+
+docs/architecture/MODULE_DOSSIER_SIMULATION_CREDIT_RISK.md
+
+Include:
+1. Scope and confidence
+2. Simulation architecture
+3. Simulation workflows
+4. Simulation calculation/data flow
+5. Credit Risk architecture
+6. Credit Risk workflows
+7. Credit Risk calculation/data flow
+8. Cross-module dependencies
+9. Oracle/persistence dependencies
+10. UI/framework dependencies
+11. Risk hotspots
+12. Test/verification map
+13. Known unknowns
+14. Future CR Quick Start
