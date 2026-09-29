@@ -99,3 +99,24 @@ Document evidence-backed:
 Do not turn subjective preferences into "issues."
 
 At the end, provide a concise summary of what was created and the most important architectural facts discovered.
+
+## Additional architecture documents for this legacy application
+
+Add these documents to the architecture reference:
+
+### DOMAIN_AND_OPERATIONAL_FLOWS.md
+Capture Ops workflows, preconditions, state transitions, validations, operational side effects, audit/history, reports/exports, downstream effects, and recovery.
+
+### DATABASE_AND_PERSISTENCE.md
+Capture Oracle schema dependencies, Hibernate mappings, JDBC/raw SQL, procedures/packages/functions, views/triggers/sequences/synonyms, transaction boundaries, locking, connection/session lifecycle, and mixed-access risks.
+
+### UI_AND_FRAMEWORK.md
+Capture Swing screens/actions/listeners, EDT/background processing, UI-to-business/data boundaries, wrapper-framework lifecycle/security hooks, and risky patterns.
+
+### DEPENDENCIES.md
+Capture project-to-project, shared library, wrapper framework, DB, external-system, configuration, compile-time, runtime, and deployment dependencies.
+
+### MODULE_RISK_MAP.md
+For each major module capture evidence-backed blast radius, coupling, DB/UI/concurrency/integration sensitivity, operational importance, test confidence, and documentation confidence. Prefer Low/Medium/High with justification rather than arbitrary scores.
+
+Preserve legacy-specific knowledge useful for future CRs: hidden cross-module coupling, DB transaction behavior, wrapper-framework responsibilities, Swing threading, auditability, reports, and fragile shared components.
