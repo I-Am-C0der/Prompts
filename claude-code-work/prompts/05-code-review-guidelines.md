@@ -42,3 +42,12 @@ Define practical review severity guidance:
 - LOW
 
 Severity should reflect impact and likelihood in this specific application, not generic stylistic preferences.
+
+
+## Legacy-team review principle
+
+Because approximately 75 developers have worked across the application, different modules may legitimately use different patterns. Do not enforce stylistic uniformity merely for consistency.
+
+Flag a deviation when it creates a concrete defect, violates a verified local/framework contract, weakens security/data integrity, increases regression risk, or materially harms maintainability.
+
+Add explicit review checks for shared consumers, Java 8 compatibility, Swing EDT safety, Oracle locking/transactions, mixed Hibernate/JDBC behavior, wrapper-framework security/lifecycle, Ops workflow impact, reports, audit/history, and cross-module regression.
