@@ -23,13 +23,14 @@ Run these before implementing a significant CR.
 |---|---|---|
 | **10 — CR Impact Analysis** | First | Find the real blast radius: code, projects, DB, framework, integrations, Ops flows, and regressions. |
 | **12 — Legacy Change Safety Assessment** | After 10 | Check legacy-specific risks: Java 8, Swing, Oracle, Hibernate/JDBC, wrapper framework, shared runtime, etc. |
-| **07 — Pre-Implementation Architecture Review** | After 12 | Review the proposed design and produce the implementation plan. |
-| **14 — NRT Test Impact Analysis** | Before coding | Map the CR to the affected module NRT projects and JUnit test cases; identify test gaps. |
+| **14 — NRT Test Impact Analysis** | After 12 | Map the CR to affected NRT modules/JUnit cases and identify coverage gaps. |
+| **07 — Pre-Implementation Architecture Review** | After 14 | Review the proposed design using the code, legacy, dependency, and testing constraints discovered so far. |
+
 
 ### Flow
 
 ```
-10 → 12 → 07 → 14 → IMPLEMENT
+10 → 12 → 14 → 07 → IMPLEMENT
 ```
 
 ## Phase 3 — After Implementation
@@ -63,7 +64,7 @@ IMPLEMENT → 06 → 13 → 08
 
 ### Significant CR
 ```
-10 → 12 → 07 → 14 → IMPLEMENT → 06 → 13 → 08
+10 → 12 → 14 → 07 → IMPLEMENT → 06 → 13 → 08
 ```
 
 ### Small / clearly isolated CR
