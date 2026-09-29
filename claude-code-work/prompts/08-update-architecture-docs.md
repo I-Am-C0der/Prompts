@@ -40,3 +40,6 @@ Also update, when affected:
 - docs/architecture/MODULE_RISK_MAP.md
 
 For legacy changes, explicitly re-check shared-class blast radius, Oracle/Hibernate/JDBC transaction behavior, Swing threading, wrapper-framework integration, Ops workflows, reports, audit/history, and module risk/test confidence.
+- `docs/architecture/TESTING_AND_NON_REGRESSION.md`
+
+When a change modifies tests, test structure, NRT module relationships, fixtures, or regression expectations, keep this document synchronized.
