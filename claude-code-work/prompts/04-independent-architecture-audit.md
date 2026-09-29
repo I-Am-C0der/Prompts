@@ -48,3 +48,16 @@ Finish with:
 - documentation corrected
 - important knowledge still missing
 - highest-risk architectural areas
+
+## Additional legacy drift checks
+
+Explicitly audit for:
+- project boundaries documented as if they were independent services
+- shared classpath/package assumptions
+- static/global state and singleton caches
+- hidden Oracle object dependencies
+- mixed Hibernate/JDBC transaction inconsistencies
+- EDT/background-thread assumptions
+- wrapper-framework bypasses
+- missing audit/report/Ops workflow dependencies
+- high-blast-radius modules with low test/documentation confidence
