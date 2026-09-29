@@ -69,3 +69,15 @@ For Swing changes, review EDT and background-worker behavior.
 For wrapper-framework changes, verify the framework's security and lifecycle behavior.
 
 Prioritize evidence-backed data-integrity, operational-correctness, security, shared-runtime, and broad-regression findings above stylistic differences between modules.
+## JUnit NRT review
+
+For every functional change, explicitly inspect the relevant module's non-regression test module.
+
+Determine:
+- which existing JUnit cases protect the changed behavior
+- whether those tests still assert the intended behavior
+- whether negative/error/recovery cases are represented
+- whether shared-code changes require NRT coverage in additional modules
+- whether the change introduces a regression path that the current NRT suite would not detect
+
+When reporting a missing test, identify the appropriate existing NRT module/package and the scenario that should be covered. Avoid generic "add more tests" comments.
