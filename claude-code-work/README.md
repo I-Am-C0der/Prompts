@@ -146,3 +146,24 @@ Keep `CLAUDE.md` concise; store deep architecture knowledge in these persistent 
 ## Sensitive-data rule
 
 Architecture analysis must not copy secrets, credentials, customer information, production payloads, or other restricted data into prompts or documentation. Use sanitized examples and descriptions where needed.
+
+## JUnit module-level non-regression testing
+
+Each application module has its own **non-regression test module/project** containing multiple JUnit test cases covering different functionalities and operational scenarios.
+
+Treat these NRT modules as part of the application's maintainability and change-impact model.
+
+For future CR analysis, Claude should:
+- identify the NRT module associated with the affected application module
+- locate existing JUnit test classes/cases covering the affected functionality
+- map CR requirements to existing NRT coverage
+- identify related NRT cases in dependent/shared modules
+- distinguish direct NRT coverage from broader regression scenarios
+- identify missing tests when the CR changes behavior not covered by existing cases
+- avoid creating duplicate tests when an existing test can be updated appropriately
+- inspect test fixtures/data/setup/teardown and shared test utilities before proposing changes
+- verify whether tests are unit-level, DB/integration-level, or broader operational/regression tests
+- treat a passing JUnit test as evidence for the tested scenario, not proof that the entire regression surface is safe
+
+The architecture reference should maintain a durable map between modules, NRT modules, major functional areas, and important JUnit test cases where that information can be established safely.
+
