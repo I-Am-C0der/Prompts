@@ -115,3 +115,26 @@ Provide:
 ### Release blockers
 ### Residual risks
 ### Documentation updates required
+
+## JUnit NRT execution and coverage
+
+The application uses module-specific non-regression test modules containing JUnit test cases.
+
+Before finalizing the assessment:
+- identify the NRT module(s) corresponding to affected application module(s)
+- identify existing JUnit cases that cover the changed behavior
+- identify cases that should be extended because expected behavior changed
+- identify genuinely new cases required for new behavior
+- identify relevant NRT suites in transitively affected/shared modules
+- distinguish targeted tests from broader regression suites
+- record tests not executed and why
+- record environment, DB, data, or external-system limitations
+
+Add:
+
+### JUnit NRT coverage matrix
+
+| Application module | NRT module | JUnit class/case | Scenario | Why affected | Execution status | Gap/action |
+|---|---|---|---|---|---|---|
+
+A passing targeted test suite is evidence only for the scenarios actually exercised. Do not treat it as proof that unrelated workflows are unaffected.
