@@ -139,3 +139,31 @@ For Simulation and Credit Risk, also document:
 - missing coverage for critical workflows
 
 For material calculations, identify which NRT cases provide protection against regressions in precision, rounding, boundary conditions, aggregation, and expected outputs where such tests exist.
+
+## Domain invariants for Simulation and Credit Risk
+
+Where applicable, identify existing invariants involving:
+- valuation/business/scenario dates
+- calendars/cut-offs/time zones
+- currency/unit conventions
+- precision and rounding
+- thresholds/limits
+- state transitions
+- aggregation/reconciliation/control totals
+- audit/history
+- duplicate processing
+- batch/end-of-day dependencies
+
+For each material rule, identify repository evidence. Do not infer financial meaning from intuition alone.
+
+## NRT test effectiveness
+
+For calculation-sensitive tests, determine whether the JUnit NRT cases actually detect regressions in:
+- precision/rounding
+- boundary conditions
+- aggregation
+- expected outputs
+- state transitions
+- negative/error paths
+
+Note weak or missing assertions and identify the specific scenario that could escape detection.
