@@ -1,122 +1,169 @@
 # 02 — Create Persistent Architecture Reference
 
-Using the completed codebase reconnaissance, create a persistent architecture reference for this repository.
-
-The source code is authoritative. Do not invent behavior that cannot be supported by the repository.
+Convert the repository reconnaissance into a durable architecture reference for this legacy investment-banking application.
 
 ## Rules
 
-- Inspect the repository thoroughly enough to validate the reconnaissance.
-- Create/update only documentation under `docs/architecture/`.
+- Validate important findings against source before documenting them.
+- Modify documentation only under `docs/architecture/`.
 - Do NOT modify application source code.
-- Clearly mark uncertainty where the source does not provide enough evidence.
-- Prefer concrete references to modules/classes/packages/configuration over generic descriptions.
-- Avoid documenting implementation details that are trivial or likely to become noise.
-- Keep the documents useful for future code reviews and change requests.
+- Source code is authoritative.
+- Do not claim behavior without evidence.
+- Do not turn project boundaries into fake runtime/service boundaries.
+- Preserve high-value legacy details that future CRs need.
+- Mark material uncertainty explicitly.
+- Do not copy secrets or production/customer data.
 
-Create these files:
+## Create/update
 
 ### 1. CODEBASE_OVERVIEW.md
-
 Include:
-- application purpose
-- major capabilities
-- technology stack
-- runtime/build/deployment overview
-- repository structure
-- major modules
-- important entry points
-- key external systems
-- important operational characteristics
+- application purpose and users
+- business capabilities
+- technology/runtime stack
+- build/deployment model
+- project/module structure
+- entry points
+- shared infrastructure
+- external systems
+- operational context
+- major change-risk areas
 
 ### 2. ARCHITECTURE.md
-
 Include:
-- architectural style/patterns actually present
-- major components
+- actual architectural style
+- runtime topology
+- project/package boundaries
 - component responsibilities
 - dependency directions
-- architectural boundaries
-- important interfaces
-- data ownership
-- persistence architecture
+- shared runtime state
+- wrapper framework
+- Swing/UI layers
 - integration boundaries
-- synchronous/asynchronous interactions
-- important cross-cutting concerns
+- persistence boundaries
+- transaction model
+- cross-cutting concerns
 - architectural constraints
-- known architectural risks
+- important risks
+
+Explicitly distinguish organisational project separation from runtime/deployment isolation.
 
 ### 3. MODULES.md
-
-For each important module/package:
+For each major module/project:
 - responsibility
-- important classes/components
-- dependencies
-- dependents
-- public interfaces
-- data ownership
+- important packages/classes
+- entry points
+- dependencies/dependents
+- public/internal interfaces
+- DB objects used
+- external systems used
 - important invariants
-- change-risk areas
+- operational significance
+- change hazards
+- test coverage/gaps
+- maintenance clues supported by source
 
 ### 4. DATA_FLOW.md
+Document important end-to-end flows:
+UI/event -> validation -> business processing -> persistence/integration -> output/audit -> user-visible result.
 
-Document important end-to-end flows such as:
-- inbound request/event
-- validation
-- business processing
-- persistence
-- external calls
-- asynchronous work
-- response/output
-- error paths
+Include transaction boundaries, side effects, retries, failures, and recovery.
 
-Use Mermaid diagrams where they materially improve understanding.
-
-### 5. DEPENDENCIES.md
-
+### 5. DOMAIN_AND_OPERATIONAL_FLOWS.md
 Document:
-- major internal dependencies
-- important external libraries/frameworks
-- external services
-- database/storage dependencies
-- messaging dependencies
-- integration assumptions
-- compatibility constraints
+- Ops workflows
+- preconditions
+- state transitions
+- validations
+- operational side effects
+- audit/history
+- reports/exports
+- downstream impacts
+- recovery paths
 
-### 6. KNOWN_ISSUES.md
+Do not invent business rules.
 
-Document evidence-backed:
+### 6. DATABASE_AND_PERSISTENCE.md
+Document:
+- Oracle schema areas
+- tables/entities
+- Hibernate mappings
+- JDBC/raw SQL
+- HQL/JPQL where used
+- procedures/packages/functions
+- views/triggers/sequences/synonyms
+- transaction boundaries
+- session/connection lifecycle
+- commit/rollback behavior
+- locking/concurrency
+- query hotspots
+- data ownership
+- deployment/schema dependencies
+- mixed Hibernate/JDBC risks
+
+### 7. UI_AND_FRAMEWORK.md
+Document:
+- Swing screens/actions/listeners
+- EDT/background processing
+- UI-to-business/data boundaries
+- UI lifecycle
+- wrapper-framework initialization/lifecycle
+- security hooks
+- configuration
+- common established patterns
+- risky patterns
+
+### 8. DEPENDENCIES.md
+Document:
+- project-to-project dependencies
+- shared libraries/utilities
+- wrapper framework
+- third-party libraries
+- DB dependencies
+- external systems
+- configuration dependencies
+- compile-time/runtime/deployment relationships
+- hidden dependencies discovered through reflection/configuration/framework registration
+
+### 9. MODULE_RISK_MAP.md
+For each major module, capture evidence-backed:
+- change blast radius
+- coupling
+- DB sensitivity
+- UI sensitivity
+- concurrency sensitivity
+- integration sensitivity
+- operational/financial criticality
+- test confidence
+- documentation confidence
+
+Prefer Low/Medium/High with justification. Do not invent arbitrary numeric scores.
+
+### 10. KNOWN_ISSUES.md
+Document concrete evidence-backed:
 - architectural risks
 - technical debt
 - fragile areas
-- known coupling
-- reliability risks
+- reliability/data-integrity concerns
 - performance concerns
 - security concerns
 - testing gaps
-- unresolved questions
+- documentation gaps
+- unresolved architectural questions
 
-Do not turn subjective preferences into "issues."
+### 11. MODULE_DOSSIER_SIMULATION_CREDIT_RISK.md
+Include when the Simulation/Credit Risk deep-dive has been performed.
 
-At the end, provide a concise summary of what was created and the most important architectural facts discovered.
+## Final verification
 
-## Additional architecture documents for this legacy application
+Before finishing:
+1. Cross-check the documents for contradictions.
+2. Make sure project/runtime/deployment boundaries are described correctly.
+3. Make sure DB, UI/framework, operational, and cross-module dependencies are represented.
+4. Remove stale or unsupported claims.
+5. Identify important unknowns requiring human validation.
 
-Add these documents to the architecture reference:
-
-### DOMAIN_AND_OPERATIONAL_FLOWS.md
-Capture Ops workflows, preconditions, state transitions, validations, operational side effects, audit/history, reports/exports, downstream effects, and recovery.
-
-### DATABASE_AND_PERSISTENCE.md
-Capture Oracle schema dependencies, Hibernate mappings, JDBC/raw SQL, procedures/packages/functions, views/triggers/sequences/synonyms, transaction boundaries, locking, connection/session lifecycle, and mixed-access risks.
-
-### UI_AND_FRAMEWORK.md
-Capture Swing screens/actions/listeners, EDT/background processing, UI-to-business/data boundaries, wrapper-framework lifecycle/security hooks, and risky patterns.
-
-### DEPENDENCIES.md
-Capture project-to-project, shared library, wrapper framework, DB, external-system, configuration, compile-time, runtime, and deployment dependencies.
-
-### MODULE_RISK_MAP.md
-For each major module capture evidence-backed blast radius, coupling, DB/UI/concurrency/integration sensitivity, operational importance, test confidence, and documentation confidence. Prefer Low/Medium/High with justification rather than arbitrary scores.
-
-Preserve legacy-specific knowledge useful for future CRs: hidden cross-module coupling, DB transaction behavior, wrapper-framework responsibilities, Swing threading, auditability, reports, and fragile shared components.
+Finish with:
+- top facts future CRs must know
+- highest-risk areas
+- high-value unknowns requiring verification
