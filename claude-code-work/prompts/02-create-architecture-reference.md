@@ -167,3 +167,21 @@ Finish with:
 - top facts future CRs must know
 - highest-risk areas
 - high-value unknowns requiring verification
+
+## JUnit non-regression documentation
+
+Add the NRT test architecture to the persistent reference.
+
+In MODULES.md, document for each relevant application module:
+- corresponding non-regression test module/project
+- important JUnit test classes
+- functional/operational areas covered
+- shared test infrastructure
+- important DB/integration test dependencies
+- notable test gaps
+
+In a suitable architecture document, preserve the relationship:
+
+application module -> production flow -> NRT module -> JUnit test cases -> test data/dependencies
+
+Do not equate test count with coverage quality.
