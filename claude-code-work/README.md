@@ -32,7 +32,8 @@ These facts are context for the prompts, not proof. Claude must verify important
 7. **Respect safe local legacy patterns.** Do not force one coding style across modules simply because the codebase evolved under many developers.
 8. **Prioritize operational and data correctness.** Auditability, recoverability, state transitions, calculations, reports, and Ops workflows matter as much as compile/test success.
 9. **Use evidence labels.** Material findings should be classified as Confirmed, Inferred, or Uncertain.
-10. **Avoid speculative modernization.** Do not recommend rewrites, microservices, framework migrations, or broad refactors unless the actual change requires them.
+10. **Preserve existing domain invariants.** Where applicable, investigate existing application rules involving dates/calendars/cut-offs, currencies/units, precision/rounding, state transitions, reconciliation/control totals, audit/history, approvals/entitlements, batch dependencies, and duplicate-processing prevention. Derive them from application evidence; do not invent banking rules.
+11. **Avoid speculative modernization.** Do not recommend rewrites, microservices, framework migrations, or broad refactors unless the actual change requires them.
 11. **Tests are evidence, not proof of everything.** A passing JUnit NRT case proves the scenario it exercises; it does not prove unrelated workflows are unaffected.
 12. **Never expose sensitive information.** Do not copy secrets, credentials, customer data, production payloads, or restricted configuration into prompts or generated documentation.
 
@@ -243,3 +244,20 @@ Use a strong coding/reasoning model for substantial implementation, debugging, a
 Use faster models for routine reviews and small documentation maintenance.
 
 Use the more expensive model when deeper repository reasoning materially reduces implementation or regression risk, not merely because budget is available.
+
+
+## 13. Banking/domain-invariant checks
+
+Where applicable, future CR analysis should explicitly look for existing application invariants involving:
+- business/trade/settlement/value dates
+- calendars, holidays, cut-offs, and time zones
+- currencies and units
+- decimal precision and rounding
+- lifecycle/state transitions
+- reconciliation/control totals
+- audit/history
+- approvals/entitlements
+- end-of-day/batch dependencies
+- duplicate-processing prevention
+
+These are discovery targets only. Claude must derive the actual rules from repository evidence and must not invent banking semantics.
