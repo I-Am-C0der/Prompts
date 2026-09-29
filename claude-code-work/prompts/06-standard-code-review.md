@@ -57,3 +57,15 @@ Then provide:
 
 Do not modify files unless explicitly asked.
 Do not report stylistic preferences as defects unless they violate an established project convention or create a concrete problem.
+
+## Legacy-specific review emphasis
+
+When a changed file belongs to a shared/common project, trace its consumers before deciding the change is local.
+
+For DB changes, review ORM and JDBC callers plus the real transaction boundary.
+
+For Swing changes, review EDT and background-worker behavior.
+
+For wrapper-framework changes, verify the framework's security and lifecycle behavior.
+
+Prioritize evidence-backed data-integrity, operational-correctness, security, shared-runtime, and broad-regression findings above stylistic differences between modules.
