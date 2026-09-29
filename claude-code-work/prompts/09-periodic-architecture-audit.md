@@ -62,3 +62,12 @@ Look for accumulating:
 - wrapper-framework bypasses
 - stale report/audit/Ops assumptions
 - architecture documentation that is no longer useful for future CR impact analysis
+## JUnit NRT architecture drift
+
+Also audit:
+- application-module to NRT-module mappings
+- stale or renamed JUnit classes/cases in documentation
+- critical workflows with weak NRT coverage
+- test fixtures/data that no longer represent the production flow
+- shared-code changes whose NRT coverage is concentrated in only one module
+- regression suites that no longer exercise important paths
