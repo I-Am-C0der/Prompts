@@ -4,6 +4,8 @@ Before implementing a substantial change, perform an architecture/design review.
 
 Do NOT implement the change yet.
 
+When available, read the outputs of **10 — CR Impact Analysis**, **12 — Legacy Change Safety Assessment**, and **14 — NRT Test Impact Analysis**. Use them as inputs, but re-verify material assumptions against the source.
+
 ## Analyze
 
 1. Current architecture relevant to the requested change.
@@ -57,3 +59,14 @@ Before coding, verify:
 - whether build/package changes affect unrelated projects
 - whether Ops workflows, reports, audit/history, or downstream processing change
 - whether rollback is practical in the existing deployment model
+
+## Legacy/domain/test constraints
+
+Before selecting the implementation approach, explicitly account for:
+- existing application domain invariants supported by code
+- NRT cases that currently protect the behavior
+- NRT coverage gaps that the implementation may need to close
+- testability of the proposed design
+- dates/calendars, precision/rounding, state transitions, reconciliation, audit, approvals, batch, and duplicate-processing behavior where applicable
+
+Do not invent domain rules or accept prior analysis blindly; verify material assumptions against the source.
