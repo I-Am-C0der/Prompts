@@ -163,3 +163,22 @@ List business, DB/schema, framework, environment, and test questions that materi
 ### Suggested implementation boundaries
 
 For material conclusions, state **Confirmed**, **Inferred**, or **Uncertain**.
+
+## 10A — NRT test impact
+
+As part of the CR impact analysis, identify:
+- affected application module(s)
+- corresponding NRT module(s)
+- existing JUnit test classes/cases for the affected flow
+- related NRT cases in shared/dependent modules
+- test fixtures/data/setup dependencies
+- whether the CR changes an existing assertion or introduces new behavior
+- likely test cases that must be executed
+- test coverage gaps requiring new or extended JUnit cases
+
+Create:
+
+| CR requirement | Application flow | Application module | NRT module | Existing JUnit coverage | Coverage gap | Test action |
+|---|---|---|---|---|---|---|
+
+Do not assume that the NRT module with the same name is the only relevant regression suite; trace shared code and dependencies.
