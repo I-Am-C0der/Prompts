@@ -119,3 +119,9 @@ For a CR, the test workflow should be:
 8. Record unexecuted tests and environment/data limitations.
 
 Use **14 — Non-Regression Test Impact Analysis** before substantial implementation or when the regression surface is unclear.
+
+## Persistent JUnit NRT architecture reference
+
+Maintain `docs/architecture/TESTING_AND_NON_REGRESSION.md` as the durable map of application modules to their JUnit non-regression modules, important test cases, test fixtures/data, integration dependencies, and coverage gaps.
+
+When the test architecture changes, update this document using Prompt 08. Use Prompt 14 to perform detailed CR-to-test mapping before implementation.
