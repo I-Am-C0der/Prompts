@@ -48,3 +48,17 @@ Update the relevant architecture documents after the audit.
 Do NOT modify application source code as part of this task.
 
 Avoid speculative redesign. The goal is architectural accuracy, maintainability, and early identification of meaningful risks.
+
+## Legacy-specific periodic checks
+
+Look for accumulating:
+- duplicated logic across projects
+- growing dependency on shared utilities
+- hidden database coupling
+- static/global state
+- exception swallowing
+- recurring transaction/session problems
+- recurring EDT blocking
+- wrapper-framework bypasses
+- stale report/audit/Ops assumptions
+- architecture documentation that is no longer useful for future CR impact analysis
