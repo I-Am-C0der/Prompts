@@ -29,3 +29,14 @@ After updating, summarize:
 - which documents changed
 - newly introduced risks/constraints
 - any documentation questions that remain unresolved
+
+## Additional documents to keep synchronized
+
+Also update, when affected:
+- docs/architecture/DOMAIN_AND_OPERATIONAL_FLOWS.md
+- docs/architecture/DATABASE_AND_PERSISTENCE.md
+- docs/architecture/UI_AND_FRAMEWORK.md
+- docs/architecture/DEPENDENCIES.md
+- docs/architecture/MODULE_RISK_MAP.md
+
+For legacy changes, explicitly re-check shared-class blast radius, Oracle/Hibernate/JDBC transaction behavior, Swing threading, wrapper-framework integration, Ops workflows, reports, audit/history, and module risk/test confidence.
