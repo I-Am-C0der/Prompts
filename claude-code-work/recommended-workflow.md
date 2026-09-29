@@ -1,96 +1,104 @@
 # Recommended Workflow
 
-## Initial setup
+## Phase A — Establish the architecture baseline
 
-Run these in order:
+Run once, from the application root:
 
-1. `01-initial-reconnaissance.md`
-2. `02-create-architecture-reference.md`
-3. `03-create-claude-md.md`
-4. `04-independent-architecture-audit.md`
-5. `05-code-review-guidelines.md`
+1. **01 — Initial Reconnaissance**
+2. **02 — Create Architecture Reference**
+3. **03 — Create/Update CLAUDE.md**
+4. **04 — Independent Architecture Audit**
+5. **05 — Create Code Review Guidelines**
+6. **11 — Simulation & Credit Risk Module Dossier** when relevant
 
-This creates a persistent baseline that future Claude Code sessions can reuse.
+The objective is to build persistent context so later CRs do not require the same repository-wide discovery.
 
-## During feature development
+## Phase B — Before a significant Change Request
 
-Before a substantial feature:
-- `07-pre-implementation-architecture-review.md`
+### 1. Impact analysis
+Run **10 — Change Request / CR Impact Analysis**.
 
-After implementation:
-- `06-standard-code-review.md`
-- `08-update-architecture-docs.md`
+Determine the real blast radius:
+- UI entry point
+- business/service path
+- affected files/classes/projects
+- upstream/downstream consumers
+- shared utilities
+- Oracle objects
+- Hibernate/JDBC transaction behavior
+- wrapper-framework involvement
+- configuration
+- reports/jobs/integrations
+- Ops workflow impact
+- regression scope
 
-## For routine PRs
+### 2. Legacy safety assessment
+Run **12 — Legacy Change Safety Assessment**.
 
-Use:
-- `06-standard-code-review.md`
+Check compatibility and hidden hazards across Java 8, Swing, Oracle, Hibernate/JDBC, the wrapper framework, shared runtime behavior, and legacy implicit contracts.
 
-Claude should read `CLAUDE.md` and the relevant architecture documents before reviewing.
+### 3. Architecture/design review
+Run **07 — Pre-Implementation Architecture Review**.
 
-## Periodically
+Turn impact analysis into a concrete implementation plan and identify stop conditions before coding.
 
-Run:
-- `09-periodic-architecture-audit.md`
+## Phase C — After implementation
 
-A practical cadence is after several significant changes, major releases, or whenever the architecture documentation starts feeling stale.
+### 4. Code review
+Run **06 — Standard Code Review**.
 
-## Why this structure works
+Review the complete diff plus surrounding code, callers, consumers, DB references, and relevant architecture documentation.
 
-The architecture documents act as persistent context across Claude Code sessions.
+### 5. Regression/release readiness
+Run **13 — Post-Change Regression & Release Readiness**.
 
-`CLAUDE.md` stays short and operational, while the deeper architecture knowledge lives in `docs/architecture/`.
+Build the regression matrix and assess:
+- direct and indirect regression
+- DB/schema changes
+- deployment order
+- configuration
+- shared packaging
+- Ops workflow behavior
+- auditability
+- reports
+- rollback/recovery
 
-The source remains the authority. Documentation is a maintained reference, not a substitute for reading code.
+### 6. Architecture documentation
+Run **08 — Update Architecture Documentation**.
 
-## Suggested model allocation
+Synchronize only the facts that changed.
 
-Use the strongest available reasoning model for:
-- initial deep reconnaissance of a complex application
-- architecture extraction
-- independent architecture audits
-- difficult subsystem analysis
+## Phase D — Periodic audit
 
-Use a strong coding model for:
-- major feature implementation
-- large refactors
-- difficult debugging
-- complex code reviews
+Run **09 — Periodic Architecture Audit** after several significant changes, a major release, or when the documentation begins to drift.
 
-Use a faster model for:
-- routine PR reviews
-- small changes
-- documentation maintenance
-- straightforward questions
+## Small-change path
 
-Do not choose a more expensive model merely because it is available; use deeper reasoning where the additional analysis materially reduces risk.
+For a genuinely isolated change:
+1. 10 — Impact Analysis
+2. 06 — Code Review
+3. 08 — Documentation update only if required
 
+"Small" does not mean "isolated." Confirm the dependency surface first.
 
-## Legacy-specific execution rules
+## Working discipline
 
-Before analysis, start Claude Code at the application root and make sure the correct repository/worktree is selected.
+- Never assume a named project is the only affected project.
+- Distinguish project, package, compile-time, runtime, deployment, DB/data, and operational boundaries.
+- Trace upstream callers and downstream consumers.
+- Search inheritance, interfaces, reflection, configuration strings, framework registration, listeners/events, scheduled jobs, SQL/table references, reports, and shared utilities.
+- Treat Oracle and wrapper-framework behavior as part of the dependency graph.
+- Preserve safe local legacy patterns rather than forcing global stylistic uniformity.
+- Distinguish "not ideal" from "unsafe".
+- Record unknowns instead of guessing.
+- Avoid broad redesign unless the CR actually requires it.
 
-For this application, always distinguish:
-- project boundary
-- package boundary
-- compile-time dependency
-- runtime dependency
-- deployment dependency
-- database/data dependency
-- operational workflow dependency
+## What to retain for substantial CRs
 
-When a CR names one project, do not assume the change is local. Trace shared classes, interfaces, inheritance, utilities, configuration, framework registration, SQL/table references, reports, jobs, and downstream consumers.
+Keep the:
+- CR impact analysis
+- architecture/design review
+- code review
+- regression/release readiness assessment
 
-## Additional prompts added for this legacy environment
-
-### 10 — Change Request / CR Impact Analysis
-Use before coding to find the true blast radius from the business requirement.
-
-### 11 — Simulation & Credit Risk Module Deep-Dive
-Use once, and refresh when those modules undergo major architectural changes, to build reusable knowledge for future CRs.
-
-### 12 — Legacy Change Safety Assessment
-Use after impact analysis to check Java 8, Swing, Oracle, Hibernate/JDBC, wrapper framework, shared runtime, and legacy implicit-contract hazards.
-
-### 13 — Post-Change Regression & Release Readiness
-Use after implementation to determine the indirect regression surface and release/deployment checks.
+These become reusable technical records for maintenance, handover, and future CRs.
