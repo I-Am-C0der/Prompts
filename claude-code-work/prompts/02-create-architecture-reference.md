@@ -185,3 +185,17 @@ In a suitable architecture document, preserve the relationship:
 application module -> production flow -> NRT module -> JUnit test cases -> test data/dependencies
 
 Do not equate test count with coverage quality.
+
+### 12. TESTING_AND_NON_REGRESSION.md
+Document the application's JUnit non-regression architecture:
+- application module -> NRT module relationship
+- major JUnit test classes/cases
+- functionality/operations covered
+- shared test utilities/base classes
+- fixtures/test data
+- DB/integration dependencies
+- critical regression-sensitive scenarios
+- known coverage gaps
+- tests that cover shared/common application components
+
+Document what the tests actually exercise. Do not use test count as a proxy for coverage quality.
