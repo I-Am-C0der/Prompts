@@ -64,3 +64,33 @@ Use a faster model for:
 - straightforward questions
 
 Do not choose a more expensive model merely because it is available; use deeper reasoning where the additional analysis materially reduces risk.
+
+
+## Legacy-specific execution rules
+
+Before analysis, start Claude Code at the application root and make sure the correct repository/worktree is selected.
+
+For this application, always distinguish:
+- project boundary
+- package boundary
+- compile-time dependency
+- runtime dependency
+- deployment dependency
+- database/data dependency
+- operational workflow dependency
+
+When a CR names one project, do not assume the change is local. Trace shared classes, interfaces, inheritance, utilities, configuration, framework registration, SQL/table references, reports, jobs, and downstream consumers.
+
+## Additional prompts added for this legacy environment
+
+### 10 — Change Request / CR Impact Analysis
+Use before coding to find the true blast radius from the business requirement.
+
+### 11 — Simulation & Credit Risk Module Deep-Dive
+Use once, and refresh when those modules undergo major architectural changes, to build reusable knowledge for future CRs.
+
+### 12 — Legacy Change Safety Assessment
+Use after impact analysis to check Java 8, Swing, Oracle, Hibernate/JDBC, wrapper framework, shared runtime, and legacy implicit-contract hazards.
+
+### 13 — Post-Change Regression & Release Readiness
+Use after implementation to determine the indirect regression surface and release/deployment checks.
