@@ -1,127 +1,270 @@
-# Recommended Workflow
+# Recommended Workflow — Legacy Investment-Banking Application
 
-## Phase A — Establish the architecture baseline
+This document is the practical execution guide for the 14-prompt Claude Code workflow.
 
-Run once, from the application root:
+## Phase 0 — Preconditions
 
-1. **01 — Initial Reconnaissance**
-2. **02 — Create Architecture Reference**
-3. **03 — Create/Update CLAUDE.md**
-4. **04 — Independent Architecture Audit**
-5. **05 — Create Code Review Guidelines**
-6. **11 — Simulation & Credit Risk Module Dossier** when relevant
+Before starting:
 
-The objective is to build persistent context so later CRs do not require the same repository-wide discovery.
+1. Start Claude Code at the application repository root.
+2. Verify the branch/worktree.
+3. Confirm the repository is complete enough for source, build, configuration, and test analysis.
+4. Prefer a clean worktree/checkpoint before documentation changes.
+5. Never provide secrets or production/customer data to Claude.
+6. If DB/test-environment access is unavailable, record the limitation rather than guessing.
+
+## Phase A — Establish durable system knowledge
+
+### Step A1 — 01 Initial Reconnaissance
+
+Purpose:
+- understand the whole shared application
+- map business modules and runtime architecture
+- identify project/runtime/deployment boundaries
+- analyze Swing, Oracle, Hibernate/JDBC, wrapper framework, integrations, operations, and risks
+
+Output is analysis only.
+
+### Step A2 — 02 Create Architecture Reference
+
+Create/update the persistent architecture reference, including:
+
+- CODEBASE_OVERVIEW
+- ARCHITECTURE
+- MODULES
+- DATA_FLOW
+- DOMAIN_AND_OPERATIONAL_FLOWS
+- DATABASE_AND_PERSISTENCE
+- UI_AND_FRAMEWORK
+- DEPENDENCIES
+- MODULE_RISK_MAP
+- TESTING_AND_NON_REGRESSION
+- KNOWN_ISSUES
+
+### Step A3 — 03 Create/Update CLAUDE.md
+
+Keep CLAUDE.md concise and operational.
+
+It should tell Claude:
+- what the application is
+- critical Java 8/Swing/Oracle/Hibernate/JDBC constraints
+- wrapper-framework constraints
+- important project/runtime boundaries
+- testing expectations
+- where deeper architecture documentation lives
+
+### Step A4 — 04 Independent Architecture Audit
+
+Independently compare source to the documentation.
+
+Correct:
+- wrong dependencies
+- missing modules
+- stale DB information
+- incorrect Swing/framework behavior
+- wrong operational flows
+- missing NRT relationships
+- undocumented shared-runtime risks
+
+### Step A5 — 05 Code Review Guidelines
+
+Create project-specific review rules covering:
+- architecture
+- Java 8
+- Swing
+- Oracle/Hibernate/JDBC
+- wrapper framework
+- security
+- data correctness
+- operational workflows
+- NRT testing
+- deployment/release risks
+
+### Step A6 — 11 Simulation & Credit Risk Dossier
+
+Because these are the current focus modules, create a dedicated durable dossier covering:
+- module architecture
+- workflows
+- calculations
+- data sources
+- persistence
+- cross-module dependencies
+- important JUnit NRT cases
+- risk hotspots
+- future CR entry points
 
 ## Phase B — Before a significant Change Request
 
-### 1. Impact analysis
-Run **10 — Change Request / CR Impact Analysis**.
+### Step B1 — 10 CR Impact Analysis
 
-Determine the real blast radius:
-- UI entry point
-- business/service path
+Determine the real blast radius.
+
+Trace:
+- current behavior
+- requirement-to-code mapping
 - affected files/classes/projects
 - upstream/downstream consumers
-- shared utilities
+- hidden dependencies
 - Oracle objects
-- Hibernate/JDBC transaction behavior
-- wrapper-framework involvement
-- configuration
+- transactions
+- Swing path
+- wrapper framework
 - reports/jobs/integrations
+- Ops workflow
+- regression surface
+
+Do not implement.
+
+### Step B2 — 12 Legacy Change Safety Assessment
+
+Assess the proposed implementation against:
+- Java 8
+- Swing
+- Oracle
+- Hibernate/JDBC
+- wrapper framework
+- shared runtime/classpath
+- legacy implicit contracts
+- operational safety
+- rollback
+
+Do not implement.
+
+### Step B3 — 07 Pre-Implementation Architecture Review
+
+Convert the impact analysis into:
+- current-state understanding
+- candidate designs
+- design trade-offs
+- affected files/classes
+- DB/config changes
+- test strategy
+- rollout/rollback plan
+- stop conditions
+
+Do not implement.
+
+### Step B4 — 14 NRT Test Impact Analysis
+
+Map the CR to:
+- affected application modules
+- corresponding NRT modules
+- relevant JUnit test classes/cases
+- direct/partial/indirect/missing coverage
+- required test changes
+- targeted and broader NRT execution
+
+Do not implement.
+
+## Phase C — Implementation
+
+Implement the approved design using the normal development process.
+
+During implementation, continue to respect:
+- Java 8 compatibility
+- Swing EDT rules
+- Oracle/Hibernate/JDBC transactions
+- wrapper-framework contracts
+- shared project/classpath implications
+- local module conventions
+- NRT test architecture
+
+## Phase D — After implementation
+
+### Step D1 — 06 Standard Code Review
+
+Review:
+- complete diff
+- surrounding code
+- callers/consumers
+- DB references
+- framework behavior
+- NRT tests
+- architecture docs
+
+Only report actionable evidence-backed findings.
+
+### Step D2 — 13 Regression & Release Readiness
+
+Determine:
+- requirement coverage
+- true regression surface
+- module NRT suites
+- relevant JUnit cases
+- missing coverage
+- DB/deployment readiness
 - Ops workflow impact
-- regression scope
+- reports/audit impact
+- release blockers
+- residual risks
 
-### 2. Legacy safety assessment
-Run **12 — Legacy Change Safety Assessment**.
+Do not provide a vague overall rating.
 
-Check compatibility and hidden hazards across Java 8, Swing, Oracle, Hibernate/JDBC, the wrapper framework, shared runtime behavior, and legacy implicit contracts.
+### Step D3 — 08 Update Architecture Documentation
 
-### 3. Architecture/design review
-Run **07 — Pre-Implementation Architecture Review**.
+Synchronize only the technical facts changed by the implementation.
 
-Turn impact analysis into a concrete implementation plan and identify stop conditions before coding.
+Update the NRT architecture reference when:
+- new tests were added
+- tests moved/renamed
+- a module's NRT relationship changed
+- regression expectations changed
+- test fixtures/setup changed materially
 
-## Phase C — After implementation
+## Phase E — Periodic maintenance
 
-### 4. Code review
-Run **06 — Standard Code Review**.
+Run 09 Periodic Architecture Audit after:
+- several significant CRs
+- major releases
+- major shared-framework changes
+- substantial DB changes
+- noticeable documentation drift
 
-Review the complete diff plus surrounding code, callers, consumers, DB references, and relevant architecture documentation.
+Specifically check for NRT architecture drift and whether important production flows have become weakly tested.
 
-### 5. Regression/release readiness
-Run **13 — Post-Change Regression & Release Readiness**.
-
-Build the regression matrix and assess:
-- direct and indirect regression
-- DB/schema changes
-- deployment order
-- configuration
-- shared packaging
-- Ops workflow behavior
-- auditability
-- reports
-- rollback/recovery
-
-### 6. Architecture documentation
-Run **08 — Update Architecture Documentation**.
-
-Synchronize only the facts that changed.
-
-## Phase D — Periodic audit
-
-Run **09 — Periodic Architecture Audit** after several significant changes, a major release, or when the documentation begins to drift.
-
-## Small-change path
+## Phase F — Small CR path
 
 For a genuinely isolated change:
-1. 10 — Impact Analysis
-2. 06 — Code Review
-3. 08 — Documentation update only if required
 
-"Small" does not mean "isolated." Confirm the dependency surface first.
+1. 10 — CR Impact Analysis
+2. 06 — Standard Code Review
+3. 13 — Regression & Release Readiness
+4. 08 — Documentation update only when required
 
-## Working discipline
+If impact or test scope is unclear, use the full workflow.
 
-- Never assume a named project is the only affected project.
-- Distinguish project, package, compile-time, runtime, deployment, DB/data, and operational boundaries.
-- Trace upstream callers and downstream consumers.
-- Search inheritance, interfaces, reflection, configuration strings, framework registration, listeners/events, scheduled jobs, SQL/table references, reports, and shared utilities.
-- Treat Oracle and wrapper-framework behavior as part of the dependency graph.
-- Preserve safe local legacy patterns rather than forcing global stylistic uniformity.
-- Distinguish "not ideal" from "unsafe".
-- Record unknowns instead of guessing.
-- Avoid broad redesign unless the CR actually requires it.
+## Decision discipline
 
-## What to retain for substantial CRs
+Use these distinctions:
 
-Keep the:
+**Not ideal**
+- old code
+- inconsistent style
+- duplicated logic
+- unusual local pattern
+
+These are not automatically review findings.
+
+**Unsafe**
+- data-integrity problem
+- broken transaction behavior
+- security violation
+- incorrect operational result
+- shared-runtime regression
+- EDT/threading defect
+- incompatible DB/framework behavior
+- missing protection for a material regression path
+
+These deserve concrete investigation and action.
+
+## Persistent artifacts
+
+For a substantial CR, retain:
 - CR impact analysis
+- legacy safety assessment
 - architecture/design review
+- NRT impact analysis
 - code review
 - regression/release readiness assessment
 
-These become reusable technical records for maintenance, handover, and future CRs.
-
-## JUnit non-regression testing
-
-Each application module has a corresponding non-regression test module containing multiple JUnit test cases for different functionality and operational scenarios.
-
-For a CR, the test workflow should be:
-
-1. Identify the affected application module(s).
-2. Identify each corresponding NRT module.
-3. Find existing JUnit coverage for the changed flow.
-4. Map requirements to relevant existing test cases.
-5. Identify missing coverage and whether an existing test should be extended or a new test added.
-6. Expand regression scope to NRT modules of transitively affected/shared modules.
-7. After implementation, run targeted NRT tests first, then broader relevant NRT suites as justified by the blast radius.
-8. Record unexecuted tests and environment/data limitations.
-
-Use **14 — Non-Regression Test Impact Analysis** before substantial implementation or when the regression surface is unclear.
-
-## Persistent JUnit NRT architecture reference
-
-Maintain `docs/architecture/TESTING_AND_NON_REGRESSION.md` as the durable map of application modules to their JUnit non-regression modules, important test cases, test fixtures/data, integration dependencies, and coverage gaps.
-
-When the test architecture changes, update this document using Prompt 08. Use Prompt 14 to perform detailed CR-to-test mapping before implementation.
+These provide a durable technical record for maintenance, handover, future CRs, and regression analysis.
