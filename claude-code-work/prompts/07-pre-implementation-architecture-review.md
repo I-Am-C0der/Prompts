@@ -45,3 +45,15 @@ Then provide a concrete implementation plan:
 - rollback considerations
 
 Clearly separate facts about the current system from proposed design decisions.
+
+## Legacy-specific design checks
+
+Before coding, verify:
+- whether an existing module-local pattern should be extended instead of introducing a new abstraction
+- whether shared classes create cross-project blast radius
+- whether Oracle changes affect Hibernate and JDBC consumers differently
+- whether Swing work can block the EDT
+- whether wrapper-framework hooks/security context must be preserved
+- whether build/package changes affect unrelated projects
+- whether Ops workflows, reports, audit/history, or downstream processing change
+- whether rollback is practical in the existing deployment model
