@@ -127,3 +127,15 @@ Include:
 12. Test/verification map
 13. Known unknowns
 14. Future CR Quick Start
+
+## JUnit NRT map
+
+For Simulation and Credit Risk, also document:
+- the corresponding NRT module for each production module
+- important JUnit test classes/cases by functionality
+- test fixtures and shared test utilities
+- DB/integration dependencies
+- calculation/regression-sensitive test cases
+- missing coverage for critical workflows
+
+For material calculations, identify which NRT cases provide protection against regressions in precision, rounding, boundary conditions, aggregation, and expected outputs where such tests exist.
