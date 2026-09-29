@@ -51,3 +51,17 @@ Because approximately 75 developers have worked across the application, differen
 Flag a deviation when it creates a concrete defect, violates a verified local/framework contract, weakens security/data integrity, increases regression risk, or materially harms maintainability.
 
 Add explicit review checks for shared consumers, Java 8 compatibility, Swing EDT safety, Oracle locking/transactions, mixed Hibernate/JDBC behavior, wrapper-framework security/lifecycle, Ops workflow impact, reports, audit/history, and cross-module regression.
+## JUnit non-regression testing
+
+Treat NRT coverage as part of code-review analysis.
+
+Review whether:
+- the changed behavior is covered by an existing JUnit NRT case
+- an existing test must be updated because expected behavior changed
+- a new NRT case is required because the behavior is genuinely new
+- relevant negative/error/recovery paths are covered
+- shared/common code changes require NRT coverage beyond the named module
+- DB-dependent tests exercise the actual persistence behavior relevant to the change
+- test setup/fixtures hide important production assumptions
+
+Do not accept "tests exist" as sufficient evidence. Check that the tests exercise the affected behavior.
