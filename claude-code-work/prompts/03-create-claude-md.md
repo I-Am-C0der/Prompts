@@ -31,3 +31,16 @@ The file should contain:
    - `docs/architecture/KNOWN_ISSUES.md`
 
 Make the instructions actionable for Claude Code. Keep architectural details in the dedicated documents.
+
+
+## Legacy-specific additions
+
+The resulting CLAUDE.md should also record concise verified rules for:
+- Java 8 compatibility
+- Swing EDT/background processing
+- shared-project/runtime boundaries
+- Oracle/Hibernate/JDBC transaction conventions
+- wrapper-framework/security requirements
+- cross-module impact expectations for CRs
+
+Reference the deeper architecture documents rather than copying their details into CLAUDE.md.
