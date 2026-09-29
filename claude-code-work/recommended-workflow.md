@@ -102,3 +102,20 @@ Keep the:
 - regression/release readiness assessment
 
 These become reusable technical records for maintenance, handover, and future CRs.
+
+## JUnit non-regression testing
+
+Each application module has a corresponding non-regression test module containing multiple JUnit test cases for different functionality and operational scenarios.
+
+For a CR, the test workflow should be:
+
+1. Identify the affected application module(s).
+2. Identify each corresponding NRT module.
+3. Find existing JUnit coverage for the changed flow.
+4. Map requirements to relevant existing test cases.
+5. Identify missing coverage and whether an existing test should be extended or a new test added.
+6. Expand regression scope to NRT modules of transitively affected/shared modules.
+7. After implementation, run targeted NRT tests first, then broader relevant NRT suites as justified by the blast radius.
+8. Record unexecuted tests and environment/data limitations.
+
+Use **14 — Non-Regression Test Impact Analysis** before substantial implementation or when the regression surface is unclear.
