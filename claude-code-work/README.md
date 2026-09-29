@@ -44,3 +44,45 @@ docs/
 ```
 
 Keep `CLAUDE.md` concise. It should contain project instructions and references to the architecture documents rather than duplicating the entire architecture.
+
+
+## Legacy application context
+
+This workflow is specifically tuned for a legacy internal investment-banking post-settlement application used by Ops teams.
+
+Known context to verify against the repository:
+- Developed over 15+ years.
+- Capabilities include post-settlement, settlement, custody movements, simulation, credit risk, reports, and other operational modules.
+- Java 8 with Java Swing desktop UI.
+- Oracle database using both Hibernate and JDBC.
+- Shared wrapper framework providing additional security/features.
+- Projects are separated for categorisation, but they are not independently deployed microservices; they form one traditionally built shared application and are ultimately built/deployed together.
+- Roughly 75 developers have worked on different areas over time, so module-level code structure, design patterns, naming, exception handling, and abstraction quality can differ substantially.
+- Current focus: Simulation and Credit Risk.
+
+### Principles for this legacy system
+1. Treat project separation as categorisation unless runtime/deployment isolation is proven.
+2. Trace shared classes, utilities, configuration, wrapper-framework hooks, and database objects across projects.
+3. Analyze Swing EDT/background processing and UI responsiveness.
+4. Analyze Oracle, Hibernate, JDBC, transactions, locking, and session/connection lifecycle together.
+5. Preserve safe local legacy patterns rather than forcing stylistic uniformity across modules.
+6. Prioritize data integrity, operational correctness, auditability, recoverability, and regression risk.
+7. Classify material findings as Confirmed, Inferred, or Uncertain.
+8. Avoid speculative microservice/rewrite/modernization recommendations unless the actual CR requires them.
+
+## Prerequisites
+- Claude Code CLI installed and authenticated on the work laptop.
+- Complete application repository available locally.
+- Run Claude Code from the correct repository root.
+- Verify the intended branch/worktree before permitting documentation changes.
+- Prefer a clean working tree or isolated worktree/checkpoint.
+- Relevant build, configuration, and test files available.
+- Representative test environment/data when possible.
+- Never paste or commit credentials, tokens, certificates, customer information, production payloads, or other secrets.
+- Database access is optional; unavailable database behavior must be marked unverified.
+
+## Recommended CR sequence
+For a substantial Change Request, use:
+10-change-request-impact-analysis.md -> 12-legacy-change-safety-assessment.md -> 07-pre-implementation-architecture-review.md -> implementation -> 06-standard-code-review.md -> 13-post-change-regression-and-release-readiness.md -> 08-update-architecture-docs.md
+
+Use 11-simulation-credit-risk-module-dossier.md to establish durable technical knowledge for the Simulation and Credit Risk modules.
