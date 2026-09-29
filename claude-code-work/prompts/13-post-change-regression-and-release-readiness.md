@@ -138,3 +138,18 @@ Add:
 |---|---|---|---|---|---|---|
 
 A passing targeted test suite is evidence only for the scenarios actually exercised. Do not treat it as proof that unrelated workflows are unaffected.
+
+## JUnit NRT effectiveness verification
+
+For each important executed test/case, verify whether it actually protects the changed behavior.
+
+Check:
+- assertions cover the changed output/state
+- the changed execution path is actually exercised
+- mocks/stubs do not bypass the behavior under review
+- boundary/error/rollback behavior is tested where relevant
+- fixtures/test data reproduce the important production condition
+- environment-dependent tests are identified
+- a passing test is not being used as evidence for scenarios it never exercises
+
+Call out weak test protection as a regression gap even when the test passes.
