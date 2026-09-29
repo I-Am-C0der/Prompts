@@ -107,3 +107,20 @@ Record environment/data/external-system limitations.
 ### Final CR regression-test scope
 
 The goal is to make the testing plan precise enough that another developer can identify and execute the correct JUnit NRT cases without rediscovering the entire test architecture.
+
+
+## Test effectiveness
+
+Determine whether relevant tests can actually detect the regression the CR could introduce.
+
+Check:
+- assertions verify the changed output/state rather than only incidental non-null/existence conditions
+- the changed execution path is actually exercised
+- mocks/stubs do not bypass the behavior under review
+- boundary and negative/error paths are covered where relevant
+- rollback/recovery behavior is tested where relevant
+- fixtures/test data reproduce the important production condition
+- environment-dependent behavior is identified
+- a passing test is not treated as evidence for scenarios it never exercises
+
+When identifying a weakness, state the specific regression that could escape detection and the relevant JUnit/NRT scenario that should protect against it.
