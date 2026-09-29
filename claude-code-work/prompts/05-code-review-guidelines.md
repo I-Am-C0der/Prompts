@@ -65,3 +65,33 @@ Review whether:
 - test setup/fixtures hide important production assumptions
 
 Do not accept "tests exist" as sufficient evidence. Check that the tests exercise the affected behavior.
+
+## Banking/domain-invariant review
+
+Where applicable, review changes against existing application evidence for:
+- business/trade/settlement/value dates
+- holiday/calendar/cut-off/time-zone behavior
+- currency and unit semantics
+- decimal precision and rounding
+- state transitions and lifecycle invariants
+- reconciliation/control totals
+- audit/history
+- approval/entitlement rules
+- end-of-day or batch dependencies
+- duplicate-processing prevention
+
+Do not invent domain rules. Verify the existing rule and the CR requirement from repository evidence.
+
+## NRT test-effectiveness review
+
+When evaluating regression tests, check whether a test can actually detect the failure the change could introduce.
+
+Look for:
+- assertions that do not verify the changed outcome
+- tests that do not reach the changed branch
+- over-mocking that bypasses the relevant behavior
+- environment-dependent behavior presented as deterministic
+- missing boundary/error/rollback assertions
+- fixtures that hide the important production condition
+
+Do not criticize test style without identifying a concrete regression that could escape detection.
