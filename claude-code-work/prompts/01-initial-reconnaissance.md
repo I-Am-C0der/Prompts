@@ -64,3 +64,22 @@ Produce a structured report with:
 - Recommended next analysis steps
 
 Do not recommend broad refactoring merely because a different architecture might be cleaner. Focus on accurately understanding the existing system.
+
+## Legacy-specific additions
+
+Also inspect whether project boundaries are only organisational or actually runtime/deployment boundaries.
+
+Search beyond normal Java references for:
+- reflection
+- string/configuration references
+- framework registration
+- listeners/events
+- scheduled jobs
+- SQL/table references
+- shared utility usage
+
+For Oracle, trace Java/ORM references toward actual transaction boundaries, raw JDBC, procedures/packages, views, triggers, sequences, locking, and commit/rollback behavior.
+
+For Swing, identify UI actions that can trigger long-running DB/API work and whether they block the EDT.
+
+End with the highest-value facts that should be persisted for future CR analysis.
