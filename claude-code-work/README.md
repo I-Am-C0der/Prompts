@@ -63,8 +63,8 @@ For a substantial Change Request:
 4. Before implementation, run `prompts/14-non-regression-test-impact-analysis.md` when the test impact is non-trivial or unclear.
 5. Implement the approved change.
 6. `prompts/06-standard-code-review.md`
-6. `prompts/13-post-change-regression-and-release-readiness.md`
-7. `prompts/08-update-architecture-docs.md`
+7. `prompts/13-post-change-regression-and-release-readiness.md`
+8. `prompts/08-update-architecture-docs.md`
 
 ## Lightweight workflow
 
