@@ -81,3 +81,32 @@ Determine:
 - whether the change introduces a regression path that the current NRT suite would not detect
 
 When reporting a missing test, identify the appropriate existing NRT module/package and the scenario that should be covered. Avoid generic "add more tests" comments.
+
+## Banking/domain-invariant review
+
+Where applicable, verify existing application invariants involving:
+- dates/calendars/cut-offs/time zones
+- currency and unit semantics
+- precision and rounding
+- lifecycle/state transitions
+- reconciliation/control totals
+- audit/history
+- approvals/entitlements
+- batch/end-of-day dependencies
+- duplicate processing
+
+Only report defects when the repository and requirement provide evidence. Do not infer banking rules from domain intuition.
+
+## JUnit NRT effectiveness
+
+For relevant NRT tests, verify that the tests actually exercise the changed path and assert the behavior that could regress.
+
+Look specifically for:
+- weak or incidental assertions
+- tests that do not reach the changed branch
+- over-mocking that bypasses relevant logic
+- missing boundary/error/rollback assertions
+- environment-dependent behavior
+- fixtures/setup that bypass the important production condition
+
+When identifying missing coverage, name the relevant NRT module/package and scenario.
