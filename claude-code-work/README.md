@@ -60,8 +60,9 @@ For a substantial Change Request:
 1. `prompts/10-change-request-impact-analysis.md`
 2. `prompts/12-legacy-change-safety-assessment.md`
 3. `prompts/07-pre-implementation-architecture-review.md`
-4. Implement the approved change.
-5. `prompts/06-standard-code-review.md`
+4. Before implementation, run `prompts/14-non-regression-test-impact-analysis.md` when the test impact is non-trivial or unclear.
+5. Implement the approved change.
+6. `prompts/06-standard-code-review.md`
 6. `prompts/13-post-change-regression-and-release-readiness.md`
 7. `prompts/08-update-architecture-docs.md`
 
