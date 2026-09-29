@@ -141,7 +141,34 @@ Assess evidence-backed:
 - regression risk
 - rollback risk
 
-## 9. Questions before coding
+
+## 9. NRT impact signal
+
+Determine:
+- which affected production modules have corresponding NRT modules
+- which shared/dependent modules may require additional NRT regression
+- whether the changed behavior appears to have existing NRT coverage
+- whether detailed test-impact analysis is required before design/implementation
+
+Do not perform the detailed test-case mapping here. Use **14 — NRT Test Impact Analysis** for exact JUnit case mapping, coverage-gap analysis, and test execution planning.
+
+## 10. Banking/domain-invariant impact
+
+Where applicable, identify existing application rules involving:
+- business/trade/settlement/value dates
+- calendars, holidays, cut-offs, and time zones
+- currencies and units
+- decimal precision and rounding
+- lifecycle/state transitions
+- reconciliation/control totals
+- audit/history
+- approvals/entitlements
+- end-of-day/batch dependencies
+- duplicate-processing prevention
+
+Only record rules supported by repository evidence. Do not infer banking rules from domain intuition.
+
+## 11. Questions before coding
 
 List business, DB/schema, framework, environment, and test questions that materially affect implementation.
 
@@ -163,22 +190,3 @@ List business, DB/schema, framework, environment, and test questions that materi
 ### Suggested implementation boundaries
 
 For material conclusions, state **Confirmed**, **Inferred**, or **Uncertain**.
-
-## 10A — NRT test impact
-
-As part of the CR impact analysis, identify:
-- affected application module(s)
-- corresponding NRT module(s)
-- existing JUnit test classes/cases for the affected flow
-- related NRT cases in shared/dependent modules
-- test fixtures/data/setup dependencies
-- whether the CR changes an existing assertion or introduces new behavior
-- likely test cases that must be executed
-- test coverage gaps requiring new or extended JUnit cases
-
-Create:
-
-| CR requirement | Application flow | Application module | NRT module | Existing JUnit coverage | Coverage gap | Test action |
-|---|---|---|---|---|---|---|
-
-Do not assume that the NRT module with the same name is the only relevant regression suite; trace shared code and dependencies.
