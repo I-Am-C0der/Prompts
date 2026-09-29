@@ -1,0 +1,31 @@
+# 08 — Update Architecture Documentation After a Change
+
+A substantial implementation change has been completed. Update the persistent architecture documentation so it accurately reflects the current application.
+
+## Rules
+
+- Current source code is authoritative.
+- Inspect the actual changes and surrounding implementation.
+- Compare source against the existing architecture documents.
+- Make the minimum documentation changes necessary to keep the reference accurate.
+- Do NOT modify application source code.
+- Do not rewrite documents unnecessarily.
+- Remove statements that are now demonstrably stale.
+- Add new architectural facts, flows, dependencies, risks, or constraints introduced by the change.
+
+Review and update as applicable:
+
+- `CLAUDE.md`
+- `docs/architecture/CODEBASE_OVERVIEW.md`
+- `docs/architecture/ARCHITECTURE.md`
+- `docs/architecture/MODULES.md`
+- `docs/architecture/DATA_FLOW.md`
+- `docs/architecture/DEPENDENCIES.md`
+- `docs/architecture/KNOWN_ISSUES.md`
+- `docs/architecture/CODE_REVIEW_GUIDELINES.md`
+
+After updating, summarize:
+- what changed architecturally
+- which documents changed
+- newly introduced risks/constraints
+- any documentation questions that remain unresolved
