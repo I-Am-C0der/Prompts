@@ -83,3 +83,17 @@ For Oracle, trace Java/ORM references toward actual transaction boundaries, raw 
 For Swing, identify UI actions that can trigger long-running DB/API work and whether they block the EDT.
 
 End with the highest-value facts that should be persisted for future CR analysis.
+## JUnit non-regression test architecture
+
+The repository contains module-specific non-regression test modules with JUnit test cases covering different functionalities and operations.
+
+During reconnaissance, identify:
+- application module -> corresponding NRT module relationships
+- JUnit test packages/classes
+- major functional/operational scenarios represented by each NRT module
+- shared test utilities, fixtures, base classes, and test data
+- DB/integration dependencies of the tests
+- tests that exercise shared/common application code
+- gaps where important production flows appear weakly represented in NRT
+
+Do not judge coverage solely by test count. Record what functionality the tests actually exercise and whether they provide meaningful regression protection.
