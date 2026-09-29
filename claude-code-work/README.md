@@ -167,3 +167,6 @@ For future CR analysis, Claude should:
 
 The architecture reference should maintain a durable map between modules, NRT modules, major functional areas, and important JUnit test cases where that information can be established safely.
 
+
+- `docs/architecture/TESTING_AND_NON_REGRESSION.md`
+- `docs/architecture/MODULE_DOSSIER_SIMULATION_CREDIT_RISK.md` when applicable
