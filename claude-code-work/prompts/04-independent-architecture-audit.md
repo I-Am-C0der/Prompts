@@ -61,6 +61,8 @@ Read `docs/architecture/JAR_AND_BINARY_DEPENDENCIES.md` when present. Independen
 
 ## GUI/database lineage audit
 
+When `docs/architecture/TRACEABILITY_GUIDE.md` exists, audit the guide itself for stale or missing tracing anchors. Verify representative anchors only; do not perform an exhaustive table-to-screen scan merely to validate the guide.
+
 When `docs/architecture/GUI_DATABASE_LINEAGE.md` exists, independently verify representative table -> GUI and GUI -> table paths against current source, JAR, configuration, and database evidence. Check stale screen names, menu paths, action mappings, dynamic navigation, and JAR-backed implementations. Do not infer replacements for broken paths.
 
 ## Additional legacy drift checks
