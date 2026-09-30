@@ -51,6 +51,8 @@ Because approximately 75 developers have worked across the application, differen
 Flag a deviation when it creates a concrete defect, violates a verified local/framework contract, weakens security/data integrity, increases regression risk, or materially harms maintainability.
 
 Add explicit review checks for shared consumers, Java 8 compatibility, Swing EDT safety, Oracle locking/transactions, mixed Hibernate/JDBC behavior, wrapper-framework security/lifecycle, Ops workflow impact, reports, audit/history, and cross-module regression.
+
+When review-relevant consumers, shared components, build/deployment code, or NRT projects are outside the local working tree, the guidance should require selective Git inspection rather than treating them as absent. Unavailable source must be recorded as Unverified.
 ## JUnit non-regression testing
 
 Treat NRT coverage as part of code-review analysis.
