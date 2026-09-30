@@ -61,4 +61,4 @@ It should explicitly point Claude to:
 
 Keep the details in the deeper architecture documents rather than duplicating them in `CLAUDE.md`.
 
-The resulting `CLAUDE.md` should also note that the local working tree may be partial/sparse and point Claude to `docs/architecture/REPOSITORY_VISIBILITY.md` for repository-scope and evidence-visibility guidance.
+The resulting `CLAUDE.md` should also note that the local working tree may be partial/sparse and point Claude to `docs/architecture/REPOSITORY_VISIBILITY.md` for repository-scope and evidence-visibility guidance. It should also point to `docs/architecture/JAR_AND_BINARY_DEPENDENCIES.md` for relevant compiled dependencies when present.
