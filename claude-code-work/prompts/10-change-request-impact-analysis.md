@@ -20,6 +20,8 @@ Known characteristics:
 
 Verify context against the repository where possible. Do not assume project boundaries are runtime boundaries.
 
+The local working tree may be a partial/sparse checkout. Read `docs/architecture/REPOSITORY_VISIBILITY.md` when available. When CR impact could depend on code outside the working tree, inspect relevant repository tree/files through available read-only Git evidence before concluding a dependency is unavailable. Do not perform a full checkout merely for impact analysis.
+
 ## Inputs
 
 Use:
