@@ -58,6 +58,10 @@ Then provide:
 Do not modify files unless explicitly asked.
 Do not report stylistic preferences as defects unless they violate an established project convention or create a concrete problem.
 
+## JAR/binary dependencies
+
+When relevant implementation is supplied by a JAR rather than local source, read `docs/architecture/JAR_AND_BINARY_DEPENDENCIES.md` when present and inspect the exact binary selectively when necessary. Do not treat a method signature as sufficient evidence when implementation behavior affects the review. Distinguish source findings from JAR/bytecode findings.
+
 ## Repository visibility
 
 The local working tree may be partial/sparse. Read `docs/architecture/REPOSITORY_VISIBILITY.md` when it exists. When a relevant caller, consumer, shared component, framework component, build/deployment artifact, DB-related source, or NRT project is outside the working tree, inspect it selectively through available read-only Git evidence before concluding the change is local or a dependency is absent. Do not perform a full checkout merely for review. Record important inaccessible areas as Unverified.
