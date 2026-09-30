@@ -53,6 +53,10 @@ Do NOT modify application source code as part of this task.
 
 Avoid speculative redesign. The goal is architectural accuracy, maintainability, and early identification of meaningful risks.
 
+## JAR/binary dependency drift
+
+Audit `docs/architecture/JAR_AND_BINARY_DEPENDENCIES.md` and current classpath artifacts for relevant version drift, duplicate classes, changed binary dependencies, missing source coverage, and stale assumptions about compiled modules. Use selective read-only inspection.
+
 ## Legacy-specific periodic checks
 
 Look for accumulating:
