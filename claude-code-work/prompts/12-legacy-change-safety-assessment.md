@@ -20,6 +20,10 @@ The application is:
 
 Read `docs/architecture/REPOSITORY_VISIBILITY.md` when available. If a safety-relevant shared class, framework component, configuration, build/deployment artifact, caller/consumer, or DB-related source is outside the local working tree, inspect it selectively through available Git evidence before assessing the change. Do not perform a full checkout merely for the safety assessment. Distinguish Confirmed — Local, Confirmed — Git, Inferred, and Unverified evidence.
 
+## JAR/binary dependencies
+
+If a safety-relevant dependency is supplied by a JAR, inspect the exact artifact and relevant classes/methods through bytecode/decompilation where necessary. Check binary compatibility, classpath/version conflicts, static state, framework hooks, DB access, and threading behavior that can be established. Distinguish JAR/bytecode evidence from source evidence.
+
 ## Assess
 
 ### 1. Shared runtime/classpath
