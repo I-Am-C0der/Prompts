@@ -17,6 +17,10 @@ Capture reusable knowledge so future CR analysis can begin from known module beh
 - Do not expose secrets or sensitive production data.
 - Do not assume financial/risk semantics without repository or trusted project evidence.
 
+## Repository visibility
+
+The local working tree may not contain every application project. Read `docs/architecture/REPOSITORY_VISIBILITY.md` when present. For Simulation/Credit Risk dependencies outside the checkout, use selective read-only Git inspection where available to establish shared framework/common dependencies, cross-module callers/consumers, relevant Oracle/DB-related source, corresponding NRT projects, and build/deployment dependencies. Do not perform a full checkout merely for the dossier. Mark inaccessible areas Unverified.
+
 ## Simulation
 
 Document:
