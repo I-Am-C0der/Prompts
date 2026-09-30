@@ -22,6 +22,10 @@ Read `docs/architecture/REPOSITORY_VISIBILITY.md` when available. The local work
 
 If the changed production or test flow depends on classes supplied by JARs rather than visible source, consult `docs/architecture/JAR_AND_BINARY_DEPENDENCIES.md` and inspect relevant compiled classes/methods selectively when needed to map the real behavior and NRT impact. Do not treat the absence of source as absence of implementation.
 
+## GUI/database lineage
+
+When a CR changes a GUI action, screen, persistence path, or database object, use `docs/architecture/GUI_DATABASE_LINEAGE.md` when present to identify the exact user action and data flow that the NRT cases should protect. If lineage is JAR-backed or conditional, preserve those conditions in the test scope.
+
 ## 1. Identify affected production modules
 
 Use the CR impact analysis and source code to identify:
