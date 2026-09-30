@@ -46,6 +46,8 @@ When a change modifies tests, test structure, NRT module relationships, fixtures
 
 ## GUI/database lineage documentation
 
+Keep `docs/architecture/TRACEABILITY_GUIDE.md` synchronized when tracing mechanisms, high-value anchors, JAR/resource locations, or navigation conventions change. Do not turn it into an exhaustive table/screen mapping.
+
 When a change affects a GUI-to-database path, screen navigation, menu registration, or database write ownership, update `docs/architecture/GUI_DATABASE_LINEAGE.md` and synchronize affected UI/data-flow/dependency documents. Preserve exact evidence provenance and record broken or conditional paths explicitly.
 
 ## Binary dependency documentation
