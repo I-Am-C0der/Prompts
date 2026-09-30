@@ -57,7 +57,7 @@ Before running the workflow:
 
 ### Foundation and architecture
 
-Prompt **01.5** creates/updates `docs/architecture/REPOSITORY_VISIBILITY.md`. It records which source was visible locally, which relevant source was verified through Git, and which areas remain Unverified. It is an evidence/provenance document, not a substitute for the architecture reference.
+Prompt **01.5** creates/updates `docs/architecture/REPOSITORY_VISIBILITY.md`. Prompt **05.5** creates/updates `docs/architecture/JAR_AND_BINARY_DEPENDENCIES.md`. Together they record source visibility and compiled-dependency evidence so later architecture/CR analysis does not mistake an incomplete checkout or a JAR-only dependency for missing implementation.
 
 | # | Prompt | Purpose |
 |---|---|---|
@@ -67,6 +67,7 @@ Prompt **01.5** creates/updates `docs/architecture/REPOSITORY_VISIBILITY.md`. It
 | 03 | Create/Update CLAUDE.md | Create concise, operational Claude Code instructions for the application. |
 | 04 | Independent Architecture Audit | Re-verify the architecture documentation against source and detect drift/missing knowledge. |
 | 05 | Code Review Guidelines | Create application-specific review rules rather than generic checklist advice. |
+| 05.5 | JAR & Binary Dependency Analysis | Analyze relevant JAR/classpath-only dependencies and preserve binary-level evidence. |
 
 ### Change Request and implementation
 
@@ -104,10 +105,11 @@ Run these once from the application root:
 1. `01-initial-reconnaissance.md`
 2. `01.5-repository-visibility-and-missing-source-analysis.md`
 3. `02-create-architecture-reference.md`
-3. `03-create-claude-md.md`
+4. `03-create-claude-md.md`
 4. `04-independent-architecture-audit.md`
 5. `05-code-review-guidelines.md`
-6. `11-simulation-credit-risk-module-dossier.md` for the current Simulation/Credit Risk development focus.
+6. `05.5-jar-and-binary-dependency-analysis.md`
+7. `11-simulation-credit-risk-module-dossier.md` for the current Simulation/Credit Risk development focus.
 
 After this baseline exists, future sessions should read `CLAUDE.md` plus only the architecture documents relevant to the current work.
 
@@ -192,6 +194,7 @@ The normal architecture reference is:
 docs/
 └── architecture/
     ├── REPOSITORY_VISIBILITY.md
+    ├── JAR_AND_BINARY_DEPENDENCIES.md
     ├── CODEBASE_OVERVIEW.md
     ├── ARCHITECTURE.md
     ├── MODULES.md
