@@ -57,6 +57,10 @@ Avoid speculative redesign. The goal is architectural accuracy, maintainability,
 
 Audit `docs/architecture/JAR_AND_BINARY_DEPENDENCIES.md` and current classpath artifacts for relevant version drift, duplicate classes, changed binary dependencies, missing source coverage, and stale assumptions about compiled modules. Use selective read-only inspection.
 
+## GUI/database lineage drift
+
+Audit `docs/architecture/GUI_DATABASE_LINEAGE.md` for stale screen names, menu paths, action mappings, DB write paths, conditional navigation, and JAR-backed GUI relationships. Cross-check representative lineage paths against current source/JAR/configuration/database evidence. Record broken or unverified links instead of inferring replacements.
+
 ## Legacy-specific periodic checks
 
 Look for accumulating:
