@@ -110,6 +110,7 @@ Run these once from the application root:
 5. `05-code-review-guidelines.md`
 6. `05.5-jar-and-binary-dependency-analysis.md`
 7. `11-simulation-credit-risk-module-dossier.md`
+8. `05.6-database-gui-lineage-and-navigation-analysis.md`
 8. `05.6-database-gui-lineage-and-navigation-analysis.md` for the current Simulation/Credit Risk development focus.
 
 After this baseline exists, future sessions should read `CLAUDE.md` plus only the architecture documents relevant to the current work.
