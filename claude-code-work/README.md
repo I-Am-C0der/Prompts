@@ -57,7 +57,7 @@ Before running the workflow:
 
 ### Foundation and architecture
 
-Prompt **01.5** creates/updates `docs/architecture/REPOSITORY_VISIBILITY.md`. Prompt **05.5** creates/updates `docs/architecture/JAR_AND_BINARY_DEPENDENCIES.md`. Together they record source visibility and compiled-dependency evidence so later architecture/CR analysis does not mistake an incomplete checkout or a JAR-only dependency for missing implementation.
+Prompt **01.5** creates/updates `docs/architecture/REPOSITORY_VISIBILITY.md`. Prompt **05.5** creates/updates `docs/architecture/JAR_AND_BINARY_DEPENDENCIES.md`. Prompt **05.6** finalizes the initial knowledge base with `docs/architecture/TRACEABILITY_GUIDE.md`, which records where and how to perform targeted database↔GUI tracing later. It does not precompute the application's table/screen mapping.
 
 | # | Prompt | Purpose |
 |---|---|---|
@@ -68,7 +68,7 @@ Prompt **01.5** creates/updates `docs/architecture/REPOSITORY_VISIBILITY.md`. Pr
 | 04 | Independent Architecture Audit | Re-verify the architecture documentation against source and detect drift/missing knowledge. |
 | 05 | Code Review Guidelines | Create application-specific review rules rather than generic checklist advice. |
 | 05.5 | JAR & Binary Dependency Analysis | Analyze relevant JAR/classpath-only dependencies and preserve binary-level evidence. |
-| 05.6 | Database ↔ GUI Lineage & Navigation Analysis | Map tables to modifying GUI screens/menu paths and reverse screen-to-table flows, including JAR-backed code. |
+| 05.6 | Final Knowledge-Base Consolidation & On-Demand Traceability | Finalize the initial analysis with reusable DB/GUI tracing anchors and procedures; do not exhaustively map tables/screens. |
 
 ### Change Request and implementation
 
@@ -110,9 +110,8 @@ Run these once from the application root:
 4. `04-independent-architecture-audit.md`
 5. `05-code-review-guidelines.md`
 6. `05.5-jar-and-binary-dependency-analysis.md`
-7. `11-simulation-credit-risk-module-dossier.md`
-8. `05.6-database-gui-lineage-and-navigation-analysis.md`
-8. `05.6-database-gui-lineage-and-navigation-analysis.md` for the current Simulation/Credit Risk development focus.
+7. `11-simulation-credit-risk-module-dossier.md` for the current Simulation/Credit Risk development focus.
+8. `05.6-database-gui-lineage-and-navigation-analysis.md` as the final initial-analysis closure step.
 
 After this baseline exists, future sessions should read `CLAUDE.md` plus only the architecture documents relevant to the current work.
 
@@ -198,7 +197,7 @@ docs/
 └── architecture/
     ├── REPOSITORY_VISIBILITY.md
     ├── JAR_AND_BINARY_DEPENDENCIES.md
-    ├── GUI_DATABASE_LINEAGE.md
+    ├── TRACEABILITY_GUIDE.md
     ├── CODEBASE_OVERVIEW.md
     ├── ARCHITECTURE.md
     ├── MODULES.md
