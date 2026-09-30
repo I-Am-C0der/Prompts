@@ -68,6 +68,7 @@ Prompt **01.5** creates/updates `docs/architecture/REPOSITORY_VISIBILITY.md`. Pr
 | 04 | Independent Architecture Audit | Re-verify the architecture documentation against source and detect drift/missing knowledge. |
 | 05 | Code Review Guidelines | Create application-specific review rules rather than generic checklist advice. |
 | 05.5 | JAR & Binary Dependency Analysis | Analyze relevant JAR/classpath-only dependencies and preserve binary-level evidence. |
+| 05.6 | Database ↔ GUI Lineage & Navigation Analysis | Map tables to modifying GUI screens/menu paths and reverse screen-to-table flows, including JAR-backed code. |
 
 ### Change Request and implementation
 
