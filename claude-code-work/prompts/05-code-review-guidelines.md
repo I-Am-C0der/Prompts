@@ -84,6 +84,10 @@ Where applicable, review changes against existing application evidence for:
 
 Do not invent domain rules. Verify the existing rule and the CR requirement from repository evidence.
 
+## JAR and binary dependency review
+
+Review relevant compiled dependencies when source is unavailable locally. Verify the exact JAR/classpath artifact where possible, inspect relevant class/method signatures and implementation through bytecode/decompilation when necessary, and distinguish Confirmed — JAR/Bytecode from source evidence. Consider binary compatibility, duplicate classes, classpath ordering, runtime-version drift, and linkage risks.
+
 ## NRT test-effectiveness review
 
 When evaluating regression tests, check whether a test can actually detect the failure the change could introduce.
