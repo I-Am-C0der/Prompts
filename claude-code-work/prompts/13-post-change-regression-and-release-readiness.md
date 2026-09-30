@@ -25,6 +25,10 @@ Use:
 - implementation notes
 - tests already executed
 
+## Repository visibility
+
+Read `docs/architecture/REPOSITORY_VISIBILITY.md` when available. Re-check relevant source outside the local working tree through selective read-only Git inspection when needed to establish callers, consumers, NRT modules, shared dependencies, DB/deployment impact, or release risk. Do not perform a full checkout merely for release analysis. Mark important inaccessible areas as Unverified.
+
 ## 1. Verify requirement coverage
 
 Map:
