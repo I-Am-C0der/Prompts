@@ -36,6 +36,9 @@ Record ambiguity instead of guessing.
 
 ## 0. Repository visibility and source scope
 
+Also check whether relevant calls resolve into JARs/classpath artifacts rather than visible source. Consult `docs/architecture/JAR_AND_BINARY_DEPENDENCIES.md` and inspect exact binary classes/methods selectively when implementation behavior affects the CR blast radius.
+
+
 Before tracing the CR, establish whether the named module and surrounding dependencies are fully visible locally.
 
 Check relevant local projects/files, the repository visibility reference, shared/common projects outside the checkout, relevant callers/consumers outside the checkout, corresponding NRT modules outside the checkout, and build/deployment/configuration areas outside the checkout. Use selective Git inspection for relevant missing source. Record source provenance and confidence. Do not treat local absence as repository absence.
