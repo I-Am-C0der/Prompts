@@ -22,7 +22,7 @@ Read `docs/architecture/REPOSITORY_VISIBILITY.md` when available. If a safety-re
 
 ## JAR/binary dependencies
 
-If a safety-relevant dependency is supplied by a JAR, inspect the exact artifact and relevant classes/methods through bytecode/decompilation where necessary. Check binary compatibility, classpath/version conflicts, static state, framework hooks, DB access, and threading behavior that can be established. Distinguish JAR/bytecode evidence from source evidence.
+Read `docs/architecture/JAR_AND_BINARY_DEPENDENCIES.md` when present. If a safety-relevant dependency is supplied by a JAR, inspect the exact artifact and relevant classes/methods through bytecode/decompilation where necessary. Check binary compatibility, classpath/version conflicts, static state, framework hooks, DB access, and threading behavior that can be established. Distinguish JAR/bytecode evidence from source evidence.
 
 ## GUI/database lineage
 
