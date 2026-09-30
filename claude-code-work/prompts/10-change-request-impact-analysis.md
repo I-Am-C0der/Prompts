@@ -45,7 +45,7 @@ Check relevant local projects/files, the repository visibility reference, shared
 
 ## GUI/database lineage
 
-When the CR names a table, screen, menu action, or user-facing data flow, use `docs/architecture/GUI_DATABASE_LINEAGE.md` when present. Re-trace the relevant table -> DB path -> application code -> GUI action -> screen -> menu path, including JAR-backed and dynamic paths, rather than assuming the named module is the only implementation location.
+When the CR names a table, screen, menu action, or user-facing data flow, use `docs/architecture/TRACEABILITY_GUIDE.md` for the tracing procedure and relevant existing lineage/architecture documentation. Perform targeted table↔GUI tracing for the CR; do not expect an exhaustive precomputed mapping. Re-trace the relevant table -> DB path -> application code -> GUI action -> screen -> menu path, including JAR-backed and dynamic paths, rather than assuming the named module is the only implementation location.
 
 ## 1. Establish current behavior
 
