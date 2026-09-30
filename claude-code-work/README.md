@@ -25,7 +25,7 @@ These facts are context for the prompts, not proof. Claude must verify important
 
 1. **Source code is authoritative.** Documentation is a maintained reference, not proof of behavior.
 2. **The working tree is not necessarily the whole repository.** A local checkout may be partial/sparse; use repository-visibility guidance and selective Git inspection for relevant source outside the checkout.
-2. **Do not assume project boundaries are runtime boundaries.** A project split may be organisational, build-related, runtime-related, or deployment-related; determine which is actually true.
+3. **Do not assume project boundaries are runtime boundaries.** A project split may be organisational, build-related, runtime-related, or deployment-related; determine which is actually true.
 3. **Trace the whole blast radius.** Shared classes, utilities, configuration, framework services, DB objects, reports, jobs, and NRT suites can create indirect dependencies.
 4. **Analyze Oracle + Hibernate + JDBC together.** ORM code alone may not reveal the actual transaction, SQL, locking, or DB-object behavior.
 5. **Treat Swing behavior as production behavior.** EDT safety, UI responsiveness, background work, lifecycle, and blocking calls matter.
@@ -35,8 +35,8 @@ These facts are context for the prompts, not proof. Claude must verify important
 9. **Use evidence labels.** Material findings should be classified as Confirmed, Inferred, or Uncertain.
 10. **Preserve existing domain invariants.** Where applicable, investigate existing application rules involving dates/calendars/cut-offs, currencies/units, precision/rounding, state transitions, reconciliation/control totals, audit/history, approvals/entitlements, batch dependencies, and duplicate-processing prevention. Derive them from application evidence; do not invent banking rules.
 11. **Avoid speculative modernization.** Do not recommend rewrites, microservices, framework migrations, or broad refactors unless the actual change requires them.
-11. **Tests are evidence, not proof of everything.** A passing JUnit NRT case proves the scenario it exercises; it does not prove unrelated workflows are unaffected.
-12. **Never expose sensitive information.** Do not copy secrets, credentials, customer data, production payloads, or restricted configuration into prompts or generated documentation.
+12. **Tests are evidence, not proof of everything.** A passing JUnit NRT case proves the scenario it exercises; it does not prove unrelated workflows are unaffected.
+13. **Never expose sensitive information.** Do not copy secrets, credentials, customer data, production payloads, or restricted configuration into prompts or generated documentation.
 
 ## 3. Prerequisites
 
