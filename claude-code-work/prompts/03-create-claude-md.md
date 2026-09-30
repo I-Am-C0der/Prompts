@@ -60,3 +60,5 @@ It should explicitly point Claude to:
 - the relevant module dossier where applicable
 
 Keep the details in the deeper architecture documents rather than duplicating them in `CLAUDE.md`.
+
+The resulting `CLAUDE.md` should also note that the local working tree may be partial/sparse and point Claude to `docs/architecture/REPOSITORY_VISIBILITY.md` for repository-scope and evidence-visibility guidance.
