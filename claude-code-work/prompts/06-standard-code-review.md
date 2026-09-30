@@ -77,6 +77,10 @@ For Swing changes, review EDT and background-worker behavior.
 For wrapper-framework changes, verify the framework's security and lifecycle behavior.
 
 Prioritize evidence-backed data-integrity, operational-correctness, security, shared-runtime, and broad-regression findings above stylistic differences between modules.
+
+## GUI/database lineage review
+
+When a change affects persistence or a Swing workflow, consult `docs/architecture/GUI_DATABASE_LINEAGE.md` when present. Verify that the changed GUI action/screen, navigation path, persistence path, and affected DB objects remain consistent. If the relevant screen or dependency is outside the local checkout, use the repository/JAR evidence described by `REPOSITORY_VISIBILITY.md` and `JAR_AND_BINARY_DEPENDENCIES.md`.
 ## JUnit NRT review
 
 For every functional change, explicitly inspect the relevant module's non-regression test module.
