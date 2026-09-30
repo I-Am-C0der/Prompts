@@ -58,6 +58,10 @@ Then provide:
 Do not modify files unless explicitly asked.
 Do not report stylistic preferences as defects unless they violate an established project convention or create a concrete problem.
 
+## Repository visibility
+
+The local working tree may be partial/sparse. Read `docs/architecture/REPOSITORY_VISIBILITY.md` when it exists. When a relevant caller, consumer, shared component, framework component, build/deployment artifact, DB-related source, or NRT project is outside the working tree, inspect it selectively through available read-only Git evidence before concluding the change is local or a dependency is absent. Do not perform a full checkout merely for review. Record important inaccessible areas as Unverified.
+
 ## Legacy-specific review emphasis
 
 When a changed file belongs to a shared/common project, trace its consumers before deciding the change is local.
