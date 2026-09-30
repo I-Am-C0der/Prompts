@@ -24,7 +24,7 @@ If the changed production or test flow depends on classes supplied by JARs rathe
 
 ## GUI/database lineage
 
-When a CR changes a GUI action, screen, persistence path, or database object, use `docs/architecture/GUI_DATABASE_LINEAGE.md` when present to identify the exact user action and data flow that the NRT cases should protect. If lineage is JAR-backed or conditional, preserve those conditions in the test scope.
+When a CR changes a GUI action, screen, persistence path, or database object, use `docs/architecture/TRACEABILITY_GUIDE.md` when present to identify the exact user action and data flow that the NRT cases should protect. If lineage is JAR-backed or conditional, preserve those conditions in the test scope.
 
 ## 1. Identify affected production modules
 
