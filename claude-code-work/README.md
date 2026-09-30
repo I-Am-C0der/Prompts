@@ -24,6 +24,7 @@ These facts are context for the prompts, not proof. Claude must verify important
 ## 2. Core principles
 
 1. **Source code is authoritative.** Documentation is a maintained reference, not proof of behavior.
+2. **The working tree is not necessarily the whole repository.** A local checkout may be partial/sparse; use repository-visibility guidance and selective Git inspection for relevant source outside the checkout.
 2. **Do not assume project boundaries are runtime boundaries.** A project split may be organisational, build-related, runtime-related, or deployment-related; determine which is actually true.
 3. **Trace the whole blast radius.** Shared classes, utilities, configuration, framework services, DB objects, reports, jobs, and NRT suites can create indirect dependencies.
 4. **Analyze Oracle + Hibernate + JDBC together.** ORM code alone may not reveal the actual transaction, SQL, locking, or DB-object behavior.
@@ -42,7 +43,8 @@ These facts are context for the prompts, not proof. Claude must verify important
 Before running the workflow:
 
 - Claude Code CLI is installed and authenticated on the work laptop.
-- The complete application repository is available locally.
+- The local working tree may be partial/sparse; this is expected. Repository access through Git/remotes should be available where relevant.
+- Do not perform a full checkout merely for analysis.
 - Claude Code is started from the correct application repository root.
 - The intended branch/worktree is verified.
 - For documentation-changing prompts, prefer a clean working tree or isolated worktree/checkpoint.
@@ -55,9 +57,12 @@ Before running the workflow:
 
 ### Foundation and architecture
 
+Prompt **01.5** creates/updates `docs/architecture/REPOSITORY_VISIBILITY.md`. It records which source was visible locally, which relevant source was verified through Git, and which areas remain Unverified. It is an evidence/provenance document, not a substitute for the architecture reference.
+
 | # | Prompt | Purpose |
 |---|---|---|
-| 01 | Initial Reconnaissance | Understand the full application, runtime architecture, dependencies, persistence, UI, framework, operations, and risk hotspots. |
+| 01 | Initial Reconnaissance | Analyze the available working-tree source and establish the initial application architecture. |
+| 01.5 | Repository Visibility & Missing-Source Analysis | Identify relevant application areas outside the local checkout and selectively inspect them through Git. |
 | 02 | Create Architecture Reference | Turn the findings into persistent architecture documentation. |
 | 03 | Create/Update CLAUDE.md | Create concise, operational Claude Code instructions for the application. |
 | 04 | Independent Architecture Audit | Re-verify the architecture documentation against source and detect drift/missing knowledge. |
@@ -97,7 +102,8 @@ Before running the workflow:
 Run these once from the application root:
 
 1. `01-initial-reconnaissance.md`
-2. `02-create-architecture-reference.md`
+2. `01.5-repository-visibility-and-missing-source-analysis.md`
+3. `02-create-architecture-reference.md`
 3. `03-create-claude-md.md`
 4. `04-independent-architecture-audit.md`
 5. `05-code-review-guidelines.md`
@@ -107,7 +113,7 @@ After this baseline exists, future sessions should read `CLAUDE.md` plus only th
 
 ## 6. Standard significant-CR workflow
 
-For a substantial Change Request:
+For a substantial Change Request, use the repository-visibility reference as a standing constraint. If relevant source is outside the local checkout, the CR prompts should inspect it selectively through Git rather than requiring a full checkout.
 
 ```
 10 — CR Impact Analysis
@@ -160,6 +166,8 @@ Do not label a change "isolated" until callers, consumers, shared code, configur
 
 Each production module has a corresponding NRT test module/project with JUnit cases for different functionality and operations.
 
+The local checkout may contain only the modules you actively work on. Relevant production, shared, build, or NRT source outside the checkout should be inspected selectively through Git when needed; do not require a full checkout merely to perform analysis.
+
 For a CR, Claude should:
 
 1. Identify affected production modules.
@@ -183,6 +191,7 @@ The normal architecture reference is:
 ```
 docs/
 └── architecture/
+    ├── REPOSITORY_VISIBILITY.md
     ├── CODEBASE_OVERVIEW.md
     ├── ARCHITECTURE.md
     ├── MODULES.md
