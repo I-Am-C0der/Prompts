@@ -18,6 +18,10 @@ Determine exactly which NRT tests should protect the CR and where coverage is mi
 
 Read `docs/architecture/REPOSITORY_VISIBILITY.md` when available. The local working tree may be a partial/sparse checkout. When an affected production module's NRT project, JUnit class, shared test utility, fixture, or dependent production module is outside the checkout, inspect the relevant repository tree and source through available read-only Git evidence. Retrieve only the files necessary to establish the test relationship. Do not perform a full checkout merely for test-impact analysis. Distinguish Confirmed — Local, Confirmed — Git, Inferred, and Unverified. Do not conclude that a test or NRT module is absent merely because it is not checked out.
 
+## JAR/binary dependencies
+
+If the changed production or test flow depends on classes supplied by JARs rather than visible source, consult `docs/architecture/JAR_AND_BINARY_DEPENDENCIES.md` and inspect relevant compiled classes/methods selectively when needed to map the real behavior and NRT impact. Do not treat the absence of source as absence of implementation.
+
 ## 1. Identify affected production modules
 
 Use the CR impact analysis and source code to identify:
