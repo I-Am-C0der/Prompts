@@ -16,6 +16,7 @@ Run these once when first analyzing the application.
 | **05 — Code Review Guidelines** | After 04 | Create project-specific code-review rules. |
 | **05.5 — JAR & Binary Dependency Analysis** | After 05 | Analyze relevant compiled dependencies and preserve binary evidence. |
 | **11 — Simulation & Credit Risk Dossier** | For your focus modules | Build reusable knowledge for Simulation and Credit Risk. |
+| **05.6 — Database ↔ GUI Lineage** | Final initial-analysis step | Build table/screen/menu/data lineage and reusable navigation mappings. |
 
 ## Phase 2 — Before a Change Request
 
