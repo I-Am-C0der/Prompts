@@ -55,6 +55,10 @@ Read `docs/architecture/REPOSITORY_VISIBILITY.md` and independently verify that 
 
 Check for important modules/projects, shared/framework/build/deployment components, NRT infrastructure, and dependency relationships that may have been missed because they are not checked out locally. Use selective read-only Git inspection where needed. Do not treat local absence as repository absence or perform a full checkout merely for the audit. Record inaccessible areas as Unverified.
 
+## JAR/binary dependency audit
+
+Read `docs/architecture/JAR_AND_BINARY_DEPENDENCIES.md` when present. Independently verify important binary dependencies against current JAR/classpath artifacts. Look for version drift, duplicate classes, missing source coverage, binary compatibility hazards, and documentation that treats decompiled behavior as source truth. Use selective read-only inspection; do not fetch or decompile unrelated JAR contents.
+
 ## Additional legacy drift checks
 
 Explicitly audit for:
