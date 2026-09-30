@@ -80,7 +80,7 @@ Prioritize evidence-backed data-integrity, operational-correctness, security, sh
 
 ## GUI/database lineage review
 
-When a change affects persistence or a Swing workflow, consult `docs/architecture/GUI_DATABASE_LINEAGE.md` when present. Verify that the changed GUI action/screen, navigation path, persistence path, and affected DB objects remain consistent. If the relevant screen or dependency is outside the local checkout, use the repository/JAR evidence described by `REPOSITORY_VISIBILITY.md` and `JAR_AND_BINARY_DEPENDENCIES.md`.
+When a change affects persistence or a Swing workflow, consult `docs/architecture/TRACEABILITY_GUIDE.md` and any relevant existing lineage documentation. Use the guide to perform targeted table↔GUI tracing; do not expect a precomputed mapping for every table or screen. Verify that the changed GUI action/screen, navigation path, persistence path, and affected DB objects remain consistent. If the relevant screen or dependency is outside the local checkout, use the repository/JAR evidence described by `REPOSITORY_VISIBILITY.md` and `JAR_AND_BINARY_DEPENDENCIES.md`.
 ## JUnit NRT review
 
 For every functional change, explicitly inspect the relevant module's non-regression test module.
