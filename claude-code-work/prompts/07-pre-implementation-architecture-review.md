@@ -66,7 +66,7 @@ Before coding, verify:
 
 ## GUI/database lineage constraints
 
-When the change affects a user-facing data flow, consult `docs/architecture/GUI_DATABASE_LINEAGE.md` when present. Account for the actual screen/action, menu/navigation path, DB objects modified, indirect procedure/trigger effects, permissions/conditions, transaction boundary, and whether the proposed design preserves the established lineage. Inspect relevant source/JAR/configuration evidence when the path crosses non-local modules.
+When the change affects a user-facing data flow, consult `docs/architecture/TRACEABILITY_GUIDE.md` and any relevant existing lineage documentation. Perform targeted tracing of the affected path rather than assuming a precomputed table↔screen map exists. Account for the actual screen/action, menu/navigation path, DB objects modified, indirect procedure/trigger effects, permissions/conditions, transaction boundary, and whether the proposed design preserves the established lineage. Inspect relevant source/JAR/configuration evidence when the path crosses non-local modules.
 
 ## Legacy/domain/test constraints
 
