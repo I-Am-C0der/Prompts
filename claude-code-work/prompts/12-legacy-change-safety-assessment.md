@@ -26,7 +26,7 @@ Read `docs/architecture/JAR_AND_BINARY_DEPENDENCIES.md` when present. If a safet
 
 ## GUI/database lineage
 
-If the change affects a Swing screen or DB write path, consult `docs/architecture/GUI_DATABASE_LINEAGE.md` when present. Verify menu/action routing, screen lifecycle, persistence path, transaction boundary, trigger/procedure side effects, permission conditions, and any JAR-backed implementation involved.
+If the change affects a Swing screen or DB write path, consult `docs/architecture/TRACEABILITY_GUIDE.md` when present. Verify menu/action routing, screen lifecycle, persistence path, transaction boundary, trigger/procedure side effects, permission conditions, and any JAR-backed implementation involved.
 
 ## Assess
 
