@@ -14,6 +14,10 @@ Convert the repository reconnaissance into a durable architecture reference for 
 - Mark material uncertainty explicitly.
 - Do not copy secrets or production/customer data.
 
+## Repository visibility
+
+Read `docs/architecture/REPOSITORY_VISIBILITY.md` when present before finalizing the architecture reference. Incorporate relevant source verified outside the local working tree through selective read-only Git inspection. Do not describe the local checkout as the complete application repository unless that has been verified. Do not perform a full checkout merely to fill architecture gaps; mark inaccessible areas Unverified.
+
 ## Create/update
 
 ### 1. CODEBASE_OVERVIEW.md
