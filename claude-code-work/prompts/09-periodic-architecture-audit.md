@@ -61,7 +61,7 @@ Audit `docs/architecture/JAR_AND_BINARY_DEPENDENCIES.md` and current classpath a
 
 Audit `docs/architecture/TRACEABILITY_GUIDE.md` for stale tracing mechanisms and high-value anchors. Validate a representative set of paths, not every table/screen relationship. Do not expand the audit into an exhaustive lineage scan.
 
-Audit `docs/architecture/GUI_DATABASE_LINEAGE.md` for stale screen names, menu paths, action mappings, DB write paths, conditional navigation, and JAR-backed GUI relationships. Cross-check representative lineage paths against current source/JAR/configuration/database evidence. Record broken or unverified links instead of inferring replacements.
+Audit `docs/architecture/TRACEABILITY_GUIDE.md` for stale screen names, menu paths, action mappings, DB write paths, conditional navigation, and JAR-backed GUI relationships. Cross-check representative lineage paths against current source/JAR/configuration/database evidence. Record broken or unverified links instead of inferring replacements.
 
 ## Legacy-specific periodic checks
 
