@@ -44,6 +44,10 @@ For legacy changes, explicitly re-check shared-class blast radius, Oracle/Hibern
 
 When a change modifies tests, test structure, NRT module relationships, fixtures, or regression expectations, keep this document synchronized.
 
+## Binary dependency documentation
+
+When a change affects a JAR/classpath dependency, update `docs/architecture/JAR_AND_BINARY_DEPENDENCIES.md` with the relevant artifact/version, changed relationship, and evidence provenance. Do not replace valid binary evidence with unsupported source-level claims.
+
 ## Repository visibility
 
 Also keep `docs/architecture/REPOSITORY_VISIBILITY.md` synchronized when the change affects repository scope, newly relevant projects outside the local working tree, source-visibility assumptions, or evidence provenance. Do not remove valid visibility limitations simply because the current developer checkout is partial. When relevant source is outside the working tree, preserve the distinction between Confirmed — Local, Confirmed — Git, Inferred, and Unverified.
