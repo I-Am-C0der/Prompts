@@ -33,6 +33,10 @@ Read `docs/architecture/REPOSITORY_VISIBILITY.md` when available. Re-check relev
 
 When the changed behavior crosses compiled dependencies, consult `docs/architecture/JAR_AND_BINARY_DEPENDENCIES.md` and selectively inspect relevant JAR/classpath artifacts. Include binary version/classpath changes in regression and release checks. Mark inaccessible binary behavior as Unverified.
 
+## GUI/database lineage
+
+For user-facing persistence changes, consult `docs/architecture/GUI_DATABASE_LINEAGE.md` and verify that the implemented screen/action, menu/navigation path, DB write path, indirect DB effects, and relevant JAR versions still match the intended flow. Include broken or unverified lineage links in residual risk/release checks.
+
 ## 1. Verify requirement coverage
 
 Map:
