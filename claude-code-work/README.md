@@ -196,6 +196,7 @@ docs/
 └── architecture/
     ├── REPOSITORY_VISIBILITY.md
     ├── JAR_AND_BINARY_DEPENDENCIES.md
+    ├── GUI_DATABASE_LINEAGE.md
     ├── CODEBASE_OVERVIEW.md
     ├── ARCHITECTURE.md
     ├── MODULES.md
