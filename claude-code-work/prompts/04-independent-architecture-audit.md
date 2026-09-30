@@ -59,6 +59,10 @@ Check for important modules/projects, shared/framework/build/deployment componen
 
 Read `docs/architecture/JAR_AND_BINARY_DEPENDENCIES.md` when present. Independently verify important binary dependencies against current JAR/classpath artifacts. Look for version drift, duplicate classes, missing source coverage, binary compatibility hazards, and documentation that treats decompiled behavior as source truth. Use selective read-only inspection; do not fetch or decompile unrelated JAR contents.
 
+## GUI/database lineage audit
+
+When `docs/architecture/GUI_DATABASE_LINEAGE.md` exists, independently verify representative table -> GUI and GUI -> table paths against current source, JAR, configuration, and database evidence. Check stale screen names, menu paths, action mappings, dynamic navigation, and JAR-backed implementations. Do not infer replacements for broken paths.
+
 ## Additional legacy drift checks
 
 Explicitly audit for:
