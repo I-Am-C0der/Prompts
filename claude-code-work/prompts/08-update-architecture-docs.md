@@ -43,3 +43,7 @@ For legacy changes, explicitly re-check shared-class blast radius, Oracle/Hibern
 - `docs/architecture/TESTING_AND_NON_REGRESSION.md`
 
 When a change modifies tests, test structure, NRT module relationships, fixtures, or regression expectations, keep this document synchronized.
+
+## Repository visibility
+
+Also keep `docs/architecture/REPOSITORY_VISIBILITY.md` synchronized when the change affects repository scope, newly relevant projects outside the local working tree, source-visibility assumptions, or evidence provenance. Do not remove valid visibility limitations simply because the current developer checkout is partial. When relevant source is outside the working tree, preserve the distinction between Confirmed — Local, Confirmed — Git, Inferred, and Unverified.
