@@ -24,6 +24,10 @@ Read `docs/architecture/REPOSITORY_VISIBILITY.md` when available. If a safety-re
 
 If a safety-relevant dependency is supplied by a JAR, inspect the exact artifact and relevant classes/methods through bytecode/decompilation where necessary. Check binary compatibility, classpath/version conflicts, static state, framework hooks, DB access, and threading behavior that can be established. Distinguish JAR/bytecode evidence from source evidence.
 
+## GUI/database lineage
+
+If the change affects a Swing screen or DB write path, consult `docs/architecture/GUI_DATABASE_LINEAGE.md` when present. Verify menu/action routing, screen lifecycle, persistence path, transaction boundary, trigger/procedure side effects, permission conditions, and any JAR-backed implementation involved.
+
 ## Assess
 
 ### 1. Shared runtime/classpath
