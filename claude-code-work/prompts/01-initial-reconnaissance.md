@@ -17,6 +17,7 @@ This is an analysis-only task.
   - Uncertain: insufficient evidence; state what would need to be checked.
 - Do not stop after inspecting only the obvious entry points or a few representative files.
 - This prompt primarily analyzes the currently available working tree. Do not treat a partial/sparse checkout as proof of complete repository scope; qualify visibility limitations for Prompt 01.5.
+- When source for a relevant dependency is unavailable locally but a JAR/classpath artifact is present, note the binary dependency for Prompt 5.5 rather than assuming the implementation is unavailable.
 
 ## Analyze
 
