@@ -1,6 +1,6 @@
 # Recommended Workflow
 
-A simple execution guide for the 15 Claude Code prompts.
+A simple execution guide for the 16 Claude Code prompts.
 
 ## Phase 1 — One-Time Application Setup
 
@@ -14,6 +14,7 @@ Run these once when first analyzing the application.
 | **03 — Create/Update CLAUDE.md** | After 02 | Create concise project instructions for Claude Code. |
 | **04 — Independent Architecture Audit** | After 03 | Re-check the architecture documentation against the source. |
 | **05 — Code Review Guidelines** | After 04 | Create project-specific code-review rules. |
+| **05.5 — JAR & Binary Dependency Analysis** | After 05 | Analyze relevant compiled dependencies and preserve binary evidence. |
 | **11 — Simulation & Credit Risk Dossier** | For your focus modules | Build reusable knowledge for Simulation and Credit Risk. |
 
 ## Phase 2 — Before a Change Request
@@ -58,7 +59,7 @@ IMPLEMENT → 06 → 13 → 08
 
 ### First-time setup
 ```
-01 → 01.5 → 02 → 03 → 04 → 05
+01 → 01.5 → 02 → 03 → 04 → 05 → 05.5
               ↓
               11 (Simulation/Credit Risk)
 ```
