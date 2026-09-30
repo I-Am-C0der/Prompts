@@ -16,6 +16,7 @@ This is an analysis-only task.
   - Inferred: a reasonable conclusion from available evidence.
   - Uncertain: insufficient evidence; state what would need to be checked.
 - Do not stop after inspecting only the obvious entry points or a few representative files.
+- This prompt primarily analyzes the currently available working tree. Do not treat a partial/sparse checkout as proof of complete repository scope; qualify visibility limitations for Prompt 01.5.
 
 ## Analyze
 
