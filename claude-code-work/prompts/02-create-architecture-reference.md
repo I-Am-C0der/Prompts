@@ -194,6 +194,8 @@ Do not equate test count with coverage quality.
 
 ### 12. TESTING_AND_NON_REGRESSION.md
 
+The final traceability guide may be created later by Prompt 05.6; when present, keep architecture descriptions consistent with its verified tracing anchors and evidence rules.
+
 Also incorporate relevant findings from `docs/architecture/GUI_DATABASE_LINEAGE.md` when present, especially confirmed screen/action -> persistence relationships, table -> GUI write paths, navigation dependencies, and NRT relationships.
 Document the application's JUnit non-regression architecture:
 - application module -> NRT module relationship
