@@ -61,8 +61,6 @@ IMPLEMENT → 06 → 13 → 08
 ### First-time setup
 ```
 01 → 01.5 → 02 → 03 → 04 → 05 → 05.5 → 11 → 05.6
-              ↓
-              11 (Simulation/Credit Risk)
 ```
 
 ### Significant CR
