@@ -1,6 +1,6 @@
 # Recommended Workflow
 
-A simple execution guide for the 14 Claude Code prompts.
+A simple execution guide for the 15 Claude Code prompts.
 
 ## Phase 1 — One-Time Application Setup
 
@@ -8,8 +8,9 @@ Run these once when first analyzing the application.
 
 | Prompt | Run when | Purpose |
 |---|---|---|
-| **01 — Initial Reconnaissance** | First setup | Understand the full application, modules, architecture, DB, Swing, framework, integrations, and risks. |
-| **02 — Create Architecture Reference** | After 01 | Store the findings in persistent architecture documents. |
+| **01 — Initial Reconnaissance** | First setup | Analyze the available working-tree source and establish the initial application architecture. |
+| **01.5 — Repository Visibility** | After 01 | Identify relevant source outside the local checkout and selectively inspect it through Git. |
+| **02 — Create Architecture Reference** | After 01.5 | Combine local and selectively inspected Git evidence into persistent architecture documents. |
 | **03 — Create/Update CLAUDE.md** | After 02 | Create concise project instructions for Claude Code. |
 | **04 — Independent Architecture Audit** | After 03 | Re-check the architecture documentation against the source. |
 | **05 — Code Review Guidelines** | After 04 | Create project-specific code-review rules. |
@@ -57,7 +58,7 @@ IMPLEMENT → 06 → 13 → 08
 
 ### First-time setup
 ```
-01 → 02 → 03 → 04 → 05
+01 → 01.5 → 02 → 03 → 04 → 05
               ↓
               11 (Simulation/Credit Risk)
 ```
