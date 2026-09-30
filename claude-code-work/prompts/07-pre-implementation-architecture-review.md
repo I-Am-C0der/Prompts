@@ -6,6 +6,10 @@ Do NOT implement the change yet.
 
 When available, read the outputs of **10 — CR Impact Analysis**, **12 — Legacy Change Safety Assessment**, and **14 — NRT Test Impact Analysis**, plus `docs/architecture/REPOSITORY_VISIBILITY.md`. Use them as inputs, but re-verify material assumptions against the source.
 
+## JAR/binary dependencies
+
+When a proposed change crosses a compiled dependency, inspect the relevant JAR/classes selectively and consult `docs/architecture/JAR_AND_BINARY_DEPENDENCIES.md`. Account for binary compatibility, runtime classpath/version behavior, and relevant method side effects. Do not require a full source checkout merely for design analysis.
+
 ## Analyze
 
 1. Current architecture relevant to the requested change.
