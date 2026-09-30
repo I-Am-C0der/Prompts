@@ -35,7 +35,7 @@ When the changed behavior crosses compiled dependencies, consult `docs/architect
 
 ## GUI/database lineage
 
-For user-facing persistence changes, consult `docs/architecture/GUI_DATABASE_LINEAGE.md` and verify that the implemented screen/action, menu/navigation path, DB write path, indirect DB effects, and relevant JAR versions still match the intended flow. Include broken or unverified lineage links in residual risk/release checks.
+For user-facing persistence changes, consult `docs/architecture/TRACEABILITY_GUIDE.md` and verify that the implemented screen/action, menu/navigation path, DB write path, indirect DB effects, and relevant JAR versions still match the intended flow. Include broken or unverified lineage links in residual risk/release checks.
 
 ## 1. Verify requirement coverage
 
