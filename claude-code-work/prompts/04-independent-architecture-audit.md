@@ -49,6 +49,12 @@ Finish with:
 - important knowledge still missing
 - highest-risk architectural areas
 
+## Repository visibility audit
+
+Read `docs/architecture/REPOSITORY_VISIBILITY.md` and independently verify that it still reflects the repository structure available through Git.
+
+Check for important modules/projects, shared/framework/build/deployment components, NRT infrastructure, and dependency relationships that may have been missed because they are not checked out locally. Use selective read-only Git inspection where needed. Do not treat local absence as repository absence or perform a full checkout merely for the audit. Record inaccessible areas as Unverified.
+
 ## Additional legacy drift checks
 
 Explicitly audit for:
