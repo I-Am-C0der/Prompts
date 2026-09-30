@@ -26,7 +26,7 @@ These facts are context for the prompts, not proof. Claude must verify important
 1. **Source code is authoritative.** Documentation is a maintained reference, not proof of behavior.
 2. **The working tree is not necessarily the whole repository.** A local checkout may be partial/sparse; use repository-visibility guidance and selective Git inspection for relevant source outside the checkout.
 3. **Do not assume project boundaries are runtime boundaries.** A project split may be organisational, build-related, runtime-related, or deployment-related; determine which is actually true.
-3. **Trace the whole blast radius.** Shared classes, utilities, configuration, framework services, DB objects, reports, jobs, and NRT suites can create indirect dependencies.
+4. **Trace the whole blast radius.** Shared classes, utilities, configuration, framework services, DB objects, reports, jobs, and NRT suites can create indirect dependencies.
 5. **Analyze Oracle + Hibernate + JDBC together.** ORM code alone may not reveal the actual transaction, SQL, locking, or DB-object behavior.
 6. **Treat Swing behavior as production behavior.** EDT safety, UI responsiveness, background work, lifecycle, and blocking calls matter.
 7. **Treat the wrapper framework as an architectural/security dependency.** Do not bypass or change it without understanding its responsibilities.
