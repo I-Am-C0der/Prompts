@@ -4,7 +4,7 @@ Before implementing a substantial change, perform an architecture/design review.
 
 Do NOT implement the change yet.
 
-When available, read the outputs of **10 — CR Impact Analysis**, **12 — Legacy Change Safety Assessment**, and **14 — NRT Test Impact Analysis**. Use them as inputs, but re-verify material assumptions against the source.
+When available, read the outputs of **10 — CR Impact Analysis**, **12 — Legacy Change Safety Assessment**, and **14 — NRT Test Impact Analysis**, plus `docs/architecture/REPOSITORY_VISIBILITY.md`. Use them as inputs, but re-verify material assumptions against the source.
 
 ## Analyze
 
