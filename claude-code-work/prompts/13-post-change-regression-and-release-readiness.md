@@ -29,6 +29,10 @@ Use:
 
 Read `docs/architecture/REPOSITORY_VISIBILITY.md` when available. Re-check relevant source outside the local working tree through selective read-only Git inspection when needed to establish callers, consumers, NRT modules, shared dependencies, DB/deployment impact, or release risk. Do not perform a full checkout merely for release analysis. Mark important inaccessible areas as Unverified.
 
+## JAR/binary dependencies
+
+When the changed behavior crosses compiled dependencies, consult `docs/architecture/JAR_AND_BINARY_DEPENDENCIES.md` and selectively inspect relevant JAR/classpath artifacts. Include binary version/classpath changes in regression and release checks. Mark inaccessible binary behavior as Unverified.
+
 ## 1. Verify requirement coverage
 
 Map:
