@@ -27,7 +27,7 @@ For Simulation/Credit Risk dependencies supplied by JARs rather than source, con
 
 ## GUI/database lineage
 
-For Simulation/Credit Risk screens and persistence paths, consult `docs/architecture/GUI_DATABASE_LINEAGE.md` when present. Preserve mappings between screens/actions, navigation, DB objects, procedures/triggers, JAR-backed components, and NRT tests where identifiable. Record source, JAR, configuration, and database evidence separately.
+For Simulation/Credit Risk screens and persistence paths, consult `docs/architecture/TRACEABILITY_GUIDE.md` when present. Preserve mappings between screens/actions, navigation, DB objects, procedures/triggers, JAR-backed components, and NRT tests where identifiable. Record source, JAR, configuration, and database evidence separately.
 
 ## Simulation
 
