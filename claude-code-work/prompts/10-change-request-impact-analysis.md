@@ -43,6 +43,10 @@ Before tracing the CR, establish whether the named module and surrounding depend
 
 Check relevant local projects/files, the repository visibility reference, shared/common projects outside the checkout, relevant callers/consumers outside the checkout, corresponding NRT modules outside the checkout, and build/deployment/configuration areas outside the checkout. Use selective Git inspection for relevant missing source. Record source provenance and confidence. Do not treat local absence as repository absence.
 
+## GUI/database lineage
+
+When the CR names a table, screen, menu action, or user-facing data flow, use `docs/architecture/GUI_DATABASE_LINEAGE.md` when present. Re-trace the relevant table -> DB path -> application code -> GUI action -> screen -> menu path, including JAR-backed and dynamic paths, rather than assuming the named module is the only implementation location.
+
 ## 1. Establish current behavior
 
 Trace the closest existing flow:
