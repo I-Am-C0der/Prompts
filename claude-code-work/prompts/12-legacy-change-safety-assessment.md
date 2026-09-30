@@ -16,6 +16,10 @@ The application is:
 - split into projects/modules without independent microservice runtime isolation
 - maintained by a large heterogeneous developer team with materially different module-level patterns
 
+## Repository visibility
+
+Read `docs/architecture/REPOSITORY_VISIBILITY.md` when available. If a safety-relevant shared class, framework component, configuration, build/deployment artifact, caller/consumer, or DB-related source is outside the local working tree, inspect it selectively through available Git evidence before assessing the change. Do not perform a full checkout merely for the safety assessment. Distinguish Confirmed — Local, Confirmed — Git, Inferred, and Unverified evidence.
+
 ## Assess
 
 ### 1. Shared runtime/classpath
