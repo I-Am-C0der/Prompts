@@ -20,6 +20,8 @@ Read `docs/architecture/REPOSITORY_VISIBILITY.md` when present before finalizing
 
 ## Create/update
 
+Before finalizing, read `docs/architecture/JAR_AND_BINARY_DEPENDENCIES.md` when present. Incorporate its verified binary dependency relationships into `DEPENDENCIES.md`, `ARCHITECTURE.md`, and other relevant documents while preserving the distinction between source evidence and JAR/bytecode evidence.
+
 ### 1. CODEBASE_OVERVIEW.md
 Include:
 - application purpose and users
