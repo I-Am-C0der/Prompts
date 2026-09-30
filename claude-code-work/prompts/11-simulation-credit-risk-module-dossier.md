@@ -21,6 +21,10 @@ Capture reusable knowledge so future CR analysis can begin from known module beh
 
 The local working tree may not contain every application project. Read `docs/architecture/REPOSITORY_VISIBILITY.md` when present. For Simulation/Credit Risk dependencies outside the checkout, use selective read-only Git inspection where available to establish shared framework/common dependencies, cross-module callers/consumers, relevant Oracle/DB-related source, corresponding NRT projects, and build/deployment dependencies. Do not perform a full checkout merely for the dossier. Mark inaccessible areas Unverified.
 
+## JAR/binary dependencies
+
+For Simulation/Credit Risk dependencies supplied by JARs rather than source, consult `docs/architecture/JAR_AND_BINARY_DEPENDENCIES.md` and inspect relevant binary classes/methods selectively. Record binary-derived behavior separately from source-derived behavior.
+
 ## Simulation
 
 Document:
