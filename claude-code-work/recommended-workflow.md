@@ -1,6 +1,6 @@
 # Recommended Workflow
 
-A simple execution guide for the 16 Claude Code prompts.
+A simple execution guide for the 17 Claude Code prompts.
 
 ## Phase 1 — One-Time Application Setup
 
