@@ -29,6 +29,7 @@ The file should contain:
    - `docs/architecture/DATA_FLOW.md`
    - `docs/architecture/DEPENDENCIES.md`
    - `docs/architecture/KNOWN_ISSUES.md`
+   - `docs/architecture/GUI_DATABASE_LINEAGE.md` when present
 
 Make the instructions actionable for Claude Code. Keep architectural details in the dedicated documents.
 
