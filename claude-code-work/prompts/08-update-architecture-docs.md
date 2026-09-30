@@ -44,6 +44,10 @@ For legacy changes, explicitly re-check shared-class blast radius, Oracle/Hibern
 
 When a change modifies tests, test structure, NRT module relationships, fixtures, or regression expectations, keep this document synchronized.
 
+## GUI/database lineage documentation
+
+When a change affects a GUI-to-database path, screen navigation, menu registration, or database write ownership, update `docs/architecture/GUI_DATABASE_LINEAGE.md` and synchronize affected UI/data-flow/dependency documents. Preserve exact evidence provenance and record broken or conditional paths explicitly.
+
 ## Binary dependency documentation
 
 When a change affects a JAR/classpath dependency, update `docs/architecture/JAR_AND_BINARY_DEPENDENCIES.md` with the relevant artifact/version, changed relationship, and evidence provenance. Do not replace valid binary evidence with unsupported source-level claims.
