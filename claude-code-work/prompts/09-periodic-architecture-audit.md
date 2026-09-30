@@ -4,6 +4,10 @@ Perform a periodic health audit of the application's architecture and its persis
 
 The current source code is authoritative.
 
+## Repository visibility
+
+Also compare the current local working-tree scope with `docs/architecture/REPOSITORY_VISIBILITY.md` and the repository structure available through Git. Check whether new modules/projects, shared dependencies, NRT projects, or build/deployment components exist outside the local checkout and could affect the documented architecture. Use selective read-only Git inspection where needed; do not perform a full checkout merely for the audit.
+
 ## Compare
 
 - current source tree
