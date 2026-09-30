@@ -25,6 +25,10 @@ The local working tree may not contain every application project. Read `docs/arc
 
 For Simulation/Credit Risk dependencies supplied by JARs rather than source, consult `docs/architecture/JAR_AND_BINARY_DEPENDENCIES.md` and inspect relevant binary classes/methods selectively. Record binary-derived behavior separately from source-derived behavior.
 
+## GUI/database lineage
+
+For Simulation/Credit Risk screens and persistence paths, consult `docs/architecture/GUI_DATABASE_LINEAGE.md` when present. Preserve mappings between screens/actions, navigation, DB objects, procedures/triggers, JAR-backed components, and NRT tests where identifiable. Record source, JAR, configuration, and database evidence separately.
+
 ## Simulation
 
 Document:
